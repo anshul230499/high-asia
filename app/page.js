@@ -37,6 +37,42 @@ function milestoneMedia(mountain, year){
   return storyMedia[mountain.slug]?.[year] || {src:mountain.image,caption:`${mountain.name} · contextual mountain photograph`}
 }
 
+
+const photoPools = {
+  'nanda-devi': [
+    {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/1936%20photo%20of%20Nanda%20Devi%20%28cropped%29.jpg', caption:'At the edge of the sanctuary, snow and stone rise like a threshold between the inhabited world and silence.'},
+    {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Camp%20II%2C%2020%2C700%20Ft%2C%20Mentioned%20as%20GITE%20by%20Bill%20Tillman.jpg', caption:'A small human camp beneath an immeasurable sky — canvas, breath and courage held against the mountain.'},
+    {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Dhauliganga%20and%20Rishiganga%20Valleys.jpg', caption:'The valleys fold inward toward the sanctuary, as though the earth itself were guarding what lies beyond.'}
+  ],
+  'everest': [
+    {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Everest%20from%20Rongbuk%20valley%2C%201921.jpg', caption:'From Rongbuk, the highest mountain appears less like an object than a horizon lifted into the heavens.'},
+    {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Everest%20and%20Changtse%2C%201921.jpg', caption:'Two summits stand in the thin light, where distance becomes silence and scale becomes almost incomprehensible.'},
+    {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/1922%20Everest%20expedition%20at%20Base%20Camp.jpg', caption:'At base camp, human ambition gathers in fragile tents beneath a world of ice that seems indifferent to time.'}
+  ],
+  'k2': [
+    {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Italian%20K2%20expedition%2C%201954.jpg', caption:'The expedition gathers beneath K2 — a brief constellation of human lives before the immensity of the Karakoram.'},
+    {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/K2%20expedition%201954.jpg', caption:'On the approach, every step enters a colder, steeper world where rock and ice seem to have their own gravity.'},
+    {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/K2%20summit%201954.jpg', caption:'At the summit, the world falls away in every direction; for a moment there is only wind, altitude and sky.'}
+  ]
+}
+function storyPhoto(mountain,index,year){
+  const exact=storyMedia[mountain.slug]?.[year]
+  if(exact) return {...exact, caption: poeticCaption(mountain,year,index,exact.caption)}
+  const pool=photoPools[mountain.slug]||[]
+  if(pool.length) return pool[index%pool.length]
+  const others=mountains.filter(m=>m.slug!==mountain.slug)
+  const contextual=others[(mountains.findIndex(m=>m.slug===mountain.slug)+index)%others.length]
+  return {src:contextual.image,caption:`Beyond ${mountain.name}, another wall of High Asia catches the light — a reminder that no summit stands alone.`}
+}
+function poeticCaption(mountain,year,index,original){
+  const lines=[
+    `${year}: the mountain keeps the memory in snow — footsteps vanish, but the story remains.`,
+    `Here, history becomes almost weightless: a few human figures held against the vast architecture of ${mountain.name}.`,
+    `Ice preserves no applause. It holds only weather, silence, and the faint trace of those who passed through.`,
+    `Beneath ${mountain.name}, the human scale becomes tenderly small; the mountain asks for attention rather than possession.`
+  ]
+  return lines[index%lines.length]
+}
 const bounds = { minLon:68, maxLon:93, minLat:24, maxLat:38 }
 function project(lon, lat){
   const x=((lon-bounds.minLon)/(bounds.maxLon-bounds.minLon))*1000
@@ -130,14 +166,14 @@ export default function Home(){
       <div className={'mountain-hero chapter-'+activeChapter}><img className="mountain-photo" src={selected.image} alt={`${selected.name} in ${selected.sub}`}/><div className="mountain-atmosphere" aria-hidden="true"><span/><span/><span/></div><div className="mountain-overlay"></div><div className="mountain-copy"><small>{selected.range.toUpperCase()} · {selected.sub.toUpperCase()} · {selected.country.toUpperCase()}</small><h2>{selected.name}</h2><p>{selected.local}</p><div><span>{selected.elevation}</span><span>{selected.region}</span><span>First ascent · {selected.firstAscent}</span><span>{selected.status}</span></div></div></div>
 
       <div className="ice-gallery" aria-label={`${selected.name} visual gallery`}>
-        <figure className="ice-gallery-main"><img src={selected.image} alt={`${selected.name} mountain landscape`}/><figcaption><b>{selected.name}</b><span>{selected.sub} · {selected.credit}</span></figcaption></figure>
-        <figure><img src={mountains[(mountains.findIndex(m=>m.slug===selected.slug)+1)%mountains.length].image} alt="High Asia mountain context"/><figcaption><b>High Asia</b><span>Neighboring mountain landscape</span></figcaption></figure>
-        <figure><img src={mountains[(mountains.findIndex(m=>m.slug===selected.slug)+2)%mountains.length].image} alt="Himalayan ice and mountain context"/><figcaption><b>Ice & altitude</b><span>Mountain landscape study</span></figcaption></figure>
+        <figure className="ice-gallery-main"><img src={selected.image} alt={`${selected.name} mountain landscape`}/><figcaption><b>{selected.name}</b><span>Where earth rises until it begins to resemble sky.</span></figcaption></figure>
+        <figure><img src={mountains[(mountains.findIndex(m=>m.slug===selected.slug)+1)%mountains.length].image} alt="High Asia neighboring mountain"/><figcaption><b>Beyond the ridge</b><span>Another summit receives the same ancient light.</span></figcaption></figure>
+        <figure><img src={mountains[(mountains.findIndex(m=>m.slug===selected.slug)+3)%mountains.length].image} alt="High Asia ice and altitude"/><figcaption><b>Above the ordinary world</b><span>Ice, wind and silence — the elemental language of altitude.</span></figcaption></figure>
       </div>
       <div className="mountain-content reveal" data-story-step="0"><article><small>03 · THE MOUNTAIN</small><h3>{selected.headline}</h3><p className="lead">{selected.lead}</p><p>{selected.body}</p><div className="living-note"><span className="pulse-dot"></span>Scroll to travel through the story</div></article><aside className="record"><small>CORE RECORD</small><strong>{selected.elevation.replace(' m','')} <i>m</i></strong><dl><div><dt>Range</dt><dd>{selected.range}</dd></div><div><dt>Sub-range</dt><dd>{selected.sub}</dd></div><div><dt>Region</dt><dd>{selected.region}</dd></div><div><dt>Country</dt><dd>{selected.country}</dd></div><div><dt>First ascent</dt><dd>{selected.firstAscent}</dd></div></dl></aside></div>
       <div className="storytelling">
         <aside className="story-visual"><div className="story-compass"><span>N</span><i></i></div><div className="story-altitude"><small>STORY ALTITUDE</small><div><i style={{height:`${Math.min(96,22+activeChapter*14)}%`}}></i></div><strong>{activeChapter===0?'LANDSCAPE':selected.history[Math.min(activeChapter-1,selected.history.length-1)]?.[0]||'PRESENT'}</strong></div><p>{selected.name}<br/><span>{selected.sub}</span></p></aside>
-        <div className="story-steps"><div className="story-step" data-story-step="1"><small>04 · ORIGIN</small><h3>Enter the landscape.</h3><p>{selected.lead}</p></div>{selected.history.map(([year,title,text],i)=>{const media=milestoneMedia(selected,year);return <div className="story-step story-step-with-photo" data-story-step={i+2} key={year+title}><div className={'fridge-photo fridge-photo-'+(i%3)}><img src={media.src} alt={`${selected.name} ${year} historical or contextual image`}/><span>{media.caption}</span></div><small>{year}</small><h3>{title}</h3><p>{text}</p></div>})}<div className="story-step" data-story-step={selected.history.length+2}><small>NOW</small><h3>The mountain continues.</h3><p>{selected.body}</p></div></div>
+        <div className="story-steps"><div className="story-step" data-story-step="1"><small>04 · ORIGIN</small><h3>Enter the landscape.</h3><p>{selected.lead}</p></div>{selected.history.map(([year,title,text],i)=>{const media=storyPhoto(selected,i,year);return <div className="story-step story-step-with-photo" data-story-step={i+2} key={year+title}><div className={'fridge-photo fridge-photo-'+(i%3)}><img src={media.src} alt={`${selected.name} ${year} historical or contextual image`}/><span>{media.caption}</span></div><small>{year}</small><h3>{title}</h3><p>{text}</p></div>})}<div className="story-step" data-story-step={selected.history.length+2}><small>NOW</small><h3>The mountain continues.</h3><p>{selected.body}</p></div></div>
       </div>
       <div className="history"><div><small>05 · EXPEDITION / CULTURAL HISTORY</small><h3>{selected.name}, through time.</h3></div><div className="timeline">{selected.history.map(([year,title,text])=><div key={year+title}><b>{year}</b><p><strong>{title}</strong><br/>{text}</p></div>)}</div></div>
       <section className="journey-section">
