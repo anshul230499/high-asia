@@ -65,7 +65,15 @@ export default function Home(){
     <div className="scroll-progress" aria-hidden="true"><i style={{transform:`scaleX(${scrollProgress})`}}/></div>
     <header className="masthead"><div className="brand">HIGH ASIA</div><div className="edition">MOUNTAIN ATLAS · FOUNDING EDITION</div></header>
 
-    <section className="hero"><div className="hero-inner"><div><div className="kicker">Explore the roof of the world</div><h1>Mountains,<br/>in context.</h1></div><p>Explore ranges, sacred landscapes, expedition history and the journeys that lead toward them.</p></div></section>
+    <section className="hero hero-cinematic">
+      <video className="hero-video" autoPlay muted loop playsInline preload="metadata" poster={mountains[0].image} aria-hidden="true">
+        <source src="https://videos.pexels.com/video-files/37998915/16126263_3840_2160_30fps.mp4" type="video/mp4"/>
+      </video>
+      <div className="hero-video-fallback" style={{backgroundImage:`url(${mountains[0].image})`}} aria-hidden="true"></div>
+      <div className="hero-shade" aria-hidden="true"></div>
+      <div className="hero-inner"><div><div className="kicker">Explore the roof of the world</div><h1>Mountains,<br/>in context.</h1></div><p>Explore ranges, sacred landscapes, expedition history and the journeys that lead toward them.</p></div>
+      <div className="hero-media-credit">Himalayan timelapse · Major &amp; Wang / Pexels</div>
+    </section>
 
     <section className="atlas-wrap">
       <div className="atlas-topline"><div><span>01 · GEOGRAPHIC EXPLORER</span><h2>Choose a range. Then choose a peak.</h2></div><p>Every marker is plotted from geographic coordinates. The map is simplified for clarity, but it is no longer schematic.</p></div>
