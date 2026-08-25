@@ -29,11 +29,12 @@ function project(lon, lat){
 
 export default function Home(){
   const [range,setRange]=useState('All')
-  const [selected,setSelected]=useState(mountains[0])
+  const [selectedSlug,setSelectedSlug]=useState('nanda-devi')
+  const selected=useMemo(()=>mountains.find(m=>m.slug===selectedSlug) || mountains[0],[selectedSlug])
   const filtered=useMemo(()=>range==='All'?mountains:mountains.filter(m=>m.range===range),[range])
 
   function choose(m, scroll=false){
-    setSelected(m)
+    setSelectedSlug(m.slug)
     if(scroll) requestAnimationFrame(()=>document.getElementById('mountain-story')?.scrollIntoView({behavior:'smooth',block:'start'}))
   }
 
@@ -44,7 +45,7 @@ export default function Home(){
 
     <section className="atlas-wrap">
       <div className="atlas-topline"><div><span>01 · GEOGRAPHIC EXPLORER</span><h2>Choose a range. Then choose a peak.</h2></div><p>Every marker is plotted from geographic coordinates. The map is simplified for clarity, but it is no longer schematic.</p></div>
-      <nav className="filters" aria-label="Mountain range filter">{['All','Himalaya','Karakoram','Transhimalaya'].map(item=><button key={item} className={range===item?'active':''} onClick={()=>{setRange(item);const next=item==='All'?mountains[0]:mountains.find(m=>m.range===item);if(next)setSelected(next)}}>{item==='All'?'All High Asia':item}</button>)}</nav>
+      <nav className="filters" aria-label="Mountain range filter">{['All','Himalaya','Karakoram','Transhimalaya'].map(item=><button key={item} className={range===item?'active':''} onClick={()=>{setRange(item);const next=item==='All'?mountains[0]:mountains.find(m=>m.range===item);if(next)setSelectedSlug(next.slug)}}>{item==='All'?'All High Asia':item}</button>)}</nav>
       <div className="atlas-grid">
         <div className="geo-panel">
           <div className="map-label">HIGH ASIA · REAL GEOGRAPHIC POSITIONS</div>
