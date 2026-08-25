@@ -2,103 +2,82 @@
 
 import { useMemo, useState } from 'react'
 
+const countries = {
+  Pakistan:["M354.9,133.9 L310.3,139.8 L249.6,130.0 L230.0,147.3 L258.1,209.4 L290.3,229.2 L256.2,252.3 L256.9,280.8 L218.0,320.9 L193.0,361.5 L151.1,403.5 L104.7,400.4 L60.6,442.4 L86.8,460.3 L91.3,491.1 L113.8,511.4 L121.7,545.7 L33.7,545.6 L19.4,560.0 L0.0,560.0 L0.0,255.3 L22.3,251.5 L37.1,255.2 L52.7,243.9 L50.5,219.9 L67.5,195.8 L92.9,185.7 L77.2,159.2 L115.3,160.4 L126.3,146.0 L124.6,130.7 L144.5,113.9 L130.5,77.0 L153.9,59.6 L242.7,46.6 L286.3,34.7 L315.9,53.3 L327.7,84.1 L393.5,100.2 L354.9,133.9 Z"],
+  India:["M937.1,560.0 L956.6,554.8 L975.0,520.9 L952.0,514.1 L876.8,509.2 L873.3,481.4 L854.2,479.4 L822.5,462.1 L808.4,489.3 L837.3,510.5 L812.3,525.4 L803.4,539.9 L828.0,550.7 L825.4,560.0 L19.4,560.0 L33.7,545.6 L121.7,545.7 L113.8,511.4 L91.3,491.1 L86.8,460.3 L60.6,442.4 L104.7,400.4 L151.1,403.5 L193.0,361.5 L218.0,320.9 L256.9,280.8 L256.2,252.3 L290.3,229.2 L258.1,209.4 L230.0,147.3 L249.6,130.0 L310.3,139.8 L354.9,133.9 L393.5,100.2 L436.5,147.1 L432.4,179.8 L448.4,200.2 L447.0,220.6 L418.3,215.3 L429.6,259.4 L524.5,312.7 L499.1,330.8 L483.5,368.2 L612.2,425.4 L667.0,430.6 L690.1,451.0 L769.1,464.1 L802.4,463.4 L807.0,447.6 L801.7,422.2 L804.8,404.9 L829.2,396.5 L833.4,436.0 L869.8,451.2 L894.9,445.0 L961.3,446.5 L964.1,421.9 L947.9,409.1 L980.1,404.1 L1000.0,387.9 L1000.0,560.0 L937.1,560.0 Z"],
+  Nepal:["M801.7,422.2 L807.0,447.6 L802.4,463.4 L769.1,464.1 L690.1,451.0 L667.0,430.6 L612.2,425.4 L483.5,368.2 L499.1,330.8 L541.0,303.1 L573.1,315.4 L613.5,341.5 L636.0,347.2 L649.4,366.4 L680.5,374.3 L712.9,391.9 L804.8,404.9 L801.7,422.2 Z"],
+  Bhutan:["M964.1,421.9 L961.3,446.5 L894.9,445.0 L869.8,451.2 L833.4,436.0 L832.6,428.0 L859.0,398.3 L880.6,388.1 L909.2,397.4 L930.4,398.4 L964.1,421.9 Z"],
+  China:["M980.1,404.1 L947.9,409.1 L930.4,398.4 L909.2,397.4 L880.6,388.1 L859.0,398.3 L832.6,428.0 L829.2,396.5 L804.8,404.9 L712.9,391.9 L680.5,374.3 L649.4,366.4 L636.0,347.2 L613.5,341.5 L573.1,315.4 L541.0,303.1 L524.5,312.7 L468.9,284.7 L429.6,259.4 L418.3,215.3 L447.0,220.6 L448.4,200.2 L432.4,179.8 L436.5,147.1 L393.5,100.2 L327.7,84.1 L315.9,53.3 L286.3,34.7 L273.2,0.0 L1000.0,0.0 L1000.0,387.9 L980.1,404.1 Z"]
+}
+
 const mountains = [
-  { name:'Nanda Devi', range:'Himalaya', sub:'Garhwal Himalaya', elevation:'7,817 m', country:'India', firstAscent:'1936', status:'Sacred protected landscape', note:'A great summit enclosed by the Nanda Devi Sanctuary, one of the most extraordinary natural fortresses of the Himalaya.', x:47, y:58, image:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nanda_Devi_peak.jpg/1280px-Nanda_Devi_peak.jpg', credit:'Ashwani Kumar · CC BY-SA 4.0 · Wikimedia Commons' },
-  { name:'Everest', range:'Himalaya', sub:'Mahalangur Himal', elevation:'8,848.86 m', country:'Nepal / China', firstAscent:'1953', status:'World’s highest point', note:'Sagarmāthā / Qomolangma — the highest point above sea level on Earth.', x:76, y:55, image:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Everest%2C_Himalayas.jpg/1280px-Everest%2C_Himalayas.jpg', credit:'Vyacheslav Argenberg · CC BY 4.0 · Wikimedia Commons' },
-  { name:'Khangchendzonga', range:'Himalaya', sub:'Kangchenjunga Himal', elevation:'8,586 m', country:'India / Nepal', firstAscent:'1955', status:'World’s third-highest mountain', note:'A sacred five-summit massif central to the landscape and identity of Sikkim.', x:90, y:60, image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Kangchenjunga%20Mountain.jpg', credit:'Ripon Kalita · Wikimedia Commons' },
-  { name:'Annapurna I', range:'Himalaya', sub:'Annapurna Himal', elevation:'8,091 m', country:'Nepal', firstAscent:'1950', status:'First 8,000 m peak climbed', note:'A huge massif surrounded by one of the most celebrated trekking regions on Earth.', x:66, y:59, image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Annapurna%20I.jpg', credit:'Wolfgang Beyer · CC BY-SA 3.0 · Wikimedia Commons' },
-  { name:'Shivling', range:'Himalaya', sub:'Gangotri Group', elevation:'6,543 m', country:'India', firstAscent:'1974', status:'Sacred alpine icon', note:'A sharply sculpted peak above the Gangotri Glacier near Tapovan.', x:43, y:55, image:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Shivling_from_Nandanvan%2C_Mountain_peaks_of_Himalayas_Uttarakhand_India.jpg/1280px-Shivling_from_Nandanvan%2C_Mountain_peaks_of_Himalayas_Uttarakhand_India.jpg', credit:'Sharada Prasad CS · CC BY 2.0 · Wikimedia Commons' },
-  { name:'K2', range:'Karakoram', sub:'Baltoro Muztagh', elevation:'8,611 m', country:'Pakistan / China', firstAscent:'1954', status:'World’s second-highest mountain', note:'K2 belongs to the Karakoram, not the Himalaya — one of the atlas’s key geographic distinctions.', x:21, y:40, image:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/K-2_mountain.jpg/1280px-K-2_mountain.jpg', credit:'Abbas pakistani · CC BY-SA 4.0 · Wikimedia Commons' },
-  { name:'Kailash', range:'Transhimalaya', sub:'Gangdise Range', elevation:'6,638 m', country:'China (Tibet)', firstAscent:'Unclimbed', status:'Sacred pilgrimage mountain', note:'The central journey is the kora around the mountain, not a summit ascent.', x:55, y:43, image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mount%20Kailash%2C%20Tibet.jpg', credit:'Amitbalani · CC0 · Wikimedia Commons' }
+  { slug:'nanda-devi', name:'Nanda Devi', local:'नन्दा देवी · “Bliss-Giving Goddess”', range:'Himalaya', sub:'Garhwal Himalaya', elevation:'7,817 m', country:'India', region:'Chamoli, Uttarakhand', firstAscent:'1936', status:'Sacred protected landscape', lat:30.3753, lon:79.9707, image:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nanda_Devi_peak.jpg/1280px-Nanda_Devi_peak.jpg', credit:'Ashwani Kumar · CC BY-SA 4.0 · Wikimedia Commons', headline:'A summit inside a fortress.', lead:'Nanda Devi rises from one of the most extraordinary natural enclosures in the Himalaya: a ring of high ridges and peaks broken by the Rishi Ganga gorge.', body:'Its isolation is part of its identity. The mountain stands within the Nanda Devi Sanctuary, a protected landscape whose difficult approaches shaped both expedition history and modern conservation.', history:[['1934','Inner Sanctuary reached','Eric Shipton and H. W. Tilman pioneered a passage through the upper Rishi Ganga gorge.'],['1936','First ascent','Bill Tilman and Noel Odell reached Nanda Devi’s summit.'],['1983','Protection tightened','Mountaineering and adventure activity inside the national park were banned after environmental degradation.'],['1988','World Heritage recognition','Nanda Devi National Park entered UNESCO’s World Heritage List.']], sources:['UNESCO World Heritage Centre','Uttarakhand Tourism'] },
+  { slug:'everest', name:'Everest', local:'Sagarmāthā · Qomolangma', range:'Himalaya', sub:'Mahalangur Himal', elevation:'8,848.86 m', country:'Nepal / China', region:'Khumbu / Tibet', firstAscent:'1953', status:'World’s highest point', lat:27.9881, lon:86.9250, image:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Everest%2C_Himalayas.jpg/1280px-Everest%2C_Himalayas.jpg', credit:'Vyacheslav Argenberg · CC BY 4.0 · Wikimedia Commons', headline:'The highest point above sea level.', lead:'Everest is globally famous for its altitude, but the mountain is also rooted in the lived geography of the Khumbu and the Tibetan Plateau.', body:'The atlas treats Everest as more than a summit record: a border mountain, a Sherpa homeland, a pilgrimage landscape and a central chapter in twentieth-century expedition history.', history:[['1921','Reconnaissance begins','British expeditions began systematic reconnaissance from the Tibetan side.'],['1953','First ascent','Tenzing Norgay and Edmund Hillary reached the summit on 29 May.'],['1978','Without bottled oxygen','Reinhold Messner and Peter Habeler made the first ascent without supplemental oxygen.'],['2020','Modern height agreed','Nepal and China jointly announced an elevation of 8,848.86 m.']], sources:['Nepal Department of Tourism','Survey of Nepal / China announcement'] },
+  { slug:'khangchendzonga', name:'Khangchendzonga', local:'Kangchenjunga · Khangchendzonga', range:'Himalaya', sub:'Kangchenjunga Himal', elevation:'8,586 m', country:'India / Nepal', region:'Sikkim / eastern Nepal', firstAscent:'1955', status:'World’s third-highest mountain', lat:27.7025, lon:88.1475, image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Kangchenjunga%20Mountain.jpg', credit:'Ripon Kalita · Wikimedia Commons', headline:'Five summits, one sacred massif.', lead:'Khangchendzonga dominates the eastern Himalaya and holds a central place in Sikkimese sacred geography.', body:'Its great scale is matched by cultural importance. The massif forms both a physical borderland and a sacred presence that shapes how the mountain is understood beyond mountaineering.', history:[['1899','Early exploration','Douglas Freshfield’s expedition helped establish detailed geographic knowledge of the massif.'],['1955','First ascent','Joe Brown and George Band made the first ascent, stopping just short of the absolute summit in respect for local belief.'],['2016','UNESCO recognition','Khangchendzonga National Park was inscribed as a mixed World Heritage property.']], sources:['UNESCO World Heritage Centre'] },
+  { slug:'annapurna-i', name:'Annapurna I', local:'Annapurna I', range:'Himalaya', sub:'Annapurna Himal', elevation:'8,091 m', country:'Nepal', region:'Gandaki, Nepal', firstAscent:'1950', status:'First 8,000 m peak climbed', lat:28.5958, lon:83.8203, image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Annapurna%20I.jpg', credit:'Wolfgang Beyer · CC BY-SA 3.0 · Wikimedia Commons', headline:'A massif that became an entire trekking world.', lead:'Annapurna I anchors a vast mountain system of glaciers, deep valleys, high passes and inhabited landscapes.', body:'Its 1950 first ascent made history, while the surrounding Annapurna region later became one of the most influential trekking destinations in the world.', history:[['1950','First 8,000er climbed','Maurice Herzog and Louis Lachenal reached Annapurna I.'],['1970','South Face ascent','A British expedition climbed the immense south face.'],['Modern era','Trekking region expands','The Annapurna Circuit and Sanctuary became globally known long-distance routes.']], sources:['Himalayan Database','Nepal Tourism Board'] },
+  { slug:'shivling', name:'Shivling', local:'शिवलिंग', range:'Himalaya', sub:'Gangotri Group', elevation:'6,543 m', country:'India', region:'Uttarakhand, India', firstAscent:'1974', status:'Sacred alpine icon', lat:30.8620, lon:79.0630, image:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Shivling_from_Nandanvan%2C_Mountain_peaks_of_Himalayas_Uttarakhand_India.jpg/1280px-Shivling_from_Nandanvan%2C_Mountain_peaks_of_Himalayas_Uttarakhand_India.jpg', credit:'Sharada Prasad CS · CC BY 2.0 · Wikimedia Commons', headline:'A technical peak above the source landscape of the Ganges.', lead:'Shivling rises dramatically above the Gangotri Glacier near Tapovan, with one of the most recognizable profiles in the Indian Himalaya.', body:'Its importance combines steep technical climbing with a setting deeply connected to pilgrimage and the headwaters of the Bhagirathi.', history:[['1974','First ascent','An Indo-Tibetan Border Police team made the first recorded ascent.'],['Later decades','Technical routes','Steep new lines established Shivling as a major technical climbing objective.'],['Today','Tapovan approach','Trekkers experience the mountain from the Gangotri–Gaumukh–Tapovan corridor.']], sources:['Uttarakhand Tourism','Indian mountaineering records'] },
+  { slug:'k2', name:'K2', local:'K2 · Chhogori', range:'Karakoram', sub:'Baltoro Muztagh', elevation:'8,611 m', country:'Pakistan / China', region:'Karakoram', firstAscent:'1954', status:'World’s second-highest mountain', lat:35.8808, lon:76.5158, image:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/K-2_mountain.jpg/1280px-K-2_mountain.jpg', credit:'Abbas pakistani · CC BY-SA 4.0 · Wikimedia Commons', headline:'The great pyramid of the Karakoram.', lead:'K2 stands apart from the Himalaya proper, rising in the Baltoro Muztagh of the Karakoram.', body:'Its severe weather, technical difficulty and remote approach have made it one of the defining mountains of high-altitude mountaineering.', history:[['1856','Survey designation','The mountain received the survey label K2 during the Great Trigonometrical Survey.'],['1954','First ascent','Achille Compagnoni and Lino Lacedelli reached the summit.'],['2021','First winter ascent','A Nepali team completed the first winter ascent.']], sources:['Pakistan mountaineering records','Himalayan Database'] },
+  { slug:'kailash', name:'Kailash', local:'Kailāsa · Gang Rinpoche', range:'Transhimalaya', sub:'Gangdise Range', elevation:'6,638 m', country:'China (Tibet)', region:'Western Tibet', firstAscent:'Unclimbed', status:'Sacred pilgrimage mountain', lat:31.0675, lon:81.3119, image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mount%20Kailash%2C%20Tibet.jpg', credit:'Amitbalani · CC0 · Wikimedia Commons', headline:'A mountain defined by circumambulation, not conquest.', lead:'Kailash rises in western Tibet and is revered in Hindu, Buddhist, Jain and Bön traditions.', body:'Its central journey is the kora around the mountain. The summit remains unclimbed, and the mountain belongs to the Gangdise system of the Transhimalaya rather than the Himalaya proper.', history:[['Ancient tradition','Sacred landscape','The mountain became embedded in multiple religious cosmologies and pilgrimage traditions.'],['Modern era','Kora continues','Pilgrims continue the high-altitude circuit around the mountain.'],['Present','No summit ascent','Climbing remains prohibited in recognition of its religious significance.']], sources:['Tibetan cultural records','Pilgrimage literature'] }
 ]
 
-export default function Home() {
-  const [range, setRange] = useState('All')
-  const [selected, setSelected] = useState(mountains[0])
-  const filtered = useMemo(() => range === 'All' ? mountains : mountains.filter(m => m.range === range), [range])
+const bounds = { minLon:68, maxLon:93, minLat:24, maxLat:38 }
+function project(lon, lat){
+  const x=((lon-bounds.minLon)/(bounds.maxLon-bounds.minLon))*1000
+  const y=560-((lat-bounds.minLat)/(bounds.maxLat-bounds.minLat))*560
+  return [x,y]
+}
 
-  return (
-    <main>
-      <header className="masthead">
-        <div className="brand">HIGH ASIA</div>
-        <div className="edition">MOUNTAIN ATLAS · FOUNDING EDITION</div>
-      </header>
+export default function Home(){
+  const [range,setRange]=useState('All')
+  const [selected,setSelected]=useState(mountains[0])
+  const filtered=useMemo(()=>range==='All'?mountains:mountains.filter(m=>m.range===range),[range])
 
-      <section className="hero">
-        <div className="hero-inner">
-          <div className="kicker">Explore the roof of the world</div>
-          <h1>Mountains,<br/>in context.</h1>
-          <p>Explore ranges, sacred landscapes, expedition history and the journeys that lead toward them.</p>
-        </div>
-      </section>
+  function choose(m, scroll=false){
+    setSelected(m)
+    if(scroll) requestAnimationFrame(()=>document.getElementById('mountain-story')?.scrollIntoView({behavior:'smooth',block:'start'}))
+  }
 
-      <nav className="filters" aria-label="Mountain range filter">
-        {['All','Himalaya','Karakoram','Transhimalaya'].map(item => (
-          <button key={item} className={range === item ? 'active' : ''} onClick={() => {
-            setRange(item)
-            const next = item === 'All' ? mountains[0] : mountains.find(m => m.range === item)
-            if (next) setSelected(next)
-          }}>{item === 'All' ? 'All High Asia' : item}</button>
-        ))}
-      </nav>
+  return <main>
+    <header className="masthead"><div className="brand">HIGH ASIA</div><div className="edition">MOUNTAIN ATLAS · FOUNDING EDITION</div></header>
 
-      <section className="atlas-grid">
-        <div className="map-panel">
-          <div className="map-label">SELECT A PEAK · SCHEMATIC / NOT TO SCALE</div>
-          <div className="ridge ridge-a"></div>
-          <div className="ridge ridge-b"></div>
-          {filtered.map(m => (
-            <button key={m.name} className={'marker ' + (selected.name === m.name ? 'selected' : '')} style={{left:`${m.x}%`, top:`${m.y}%`}} onClick={() => setSelected(m)} aria-label={`Select ${m.name}`}>
-              <span className="dot"></span><span className="marker-label">{m.name}</span>
-            </button>
-          ))}
+    <section className="hero"><div className="hero-inner"><div><div className="kicker">Explore the roof of the world</div><h1>Mountains,<br/>in context.</h1></div><p>Explore ranges, sacred landscapes, expedition history and the journeys that lead toward them.</p></div></section>
+
+    <section className="atlas-wrap">
+      <div className="atlas-topline"><div><span>01 · GEOGRAPHIC EXPLORER</span><h2>Choose a range. Then choose a peak.</h2></div><p>Every marker is plotted from geographic coordinates. The map is simplified for clarity, but it is no longer schematic.</p></div>
+      <nav className="filters" aria-label="Mountain range filter">{['All','Himalaya','Karakoram','Transhimalaya'].map(item=><button key={item} className={range===item?'active':''} onClick={()=>{setRange(item);const next=item==='All'?mountains[0]:mountains.find(m=>m.range===item);if(next)setSelected(next)}}>{item==='All'?'All High Asia':item}</button>)}</nav>
+      <div className="atlas-grid">
+        <div className="geo-panel">
+          <div className="map-label">HIGH ASIA · REAL GEOGRAPHIC POSITIONS</div>
+          <svg viewBox="0 0 1000 560" role="img" aria-label="Map of major mountains across High Asia">
+            <defs><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#dfe5df"/><stop offset="1" stopColor="#cfd7cf"/></linearGradient></defs>
+            <rect width="1000" height="560" fill="url(#sea)"/>
+            {Object.entries(countries).map(([name,paths])=>paths.map((d,i)=><path key={name+i} d={d} className={'country '+name.toLowerCase()}/>))}
+            <path d="M85 250 C220 180 320 190 430 245 C550 305 650 345 805 390 C860 405 910 408 965 405" className="range-line himalaya-line"/>
+            <path d="M65 115 C150 85 225 75 330 110" className="range-line karakoram-line"/>
+            <path d="M430 175 C500 145 575 145 655 185" className="range-line trans-line"/>
+            <text x="445" y="335" className="map-country-label">INDIA</text><text x="612" y="420" className="map-country-label">NEPAL</text><text x="125" y="300" className="map-country-label">PAKISTAN</text><text x="590" y="110" className="map-country-label">TIBET / CHINA</text><text x="870" y="420" className="map-country-label">BHUTAN</text>
+            <text x="520" y="300" className="range-label">HIMALAYA</text><text x="120" y="92" className="range-label">KARAKORAM</text><text x="485" y="150" className="range-label">TRANSHIMALAYA</text>
+            {filtered.map(m=>{const [x,y]=project(m.lon,m.lat);return <g key={m.name} transform={`translate(${x} ${y})`} className={'map-peak '+(selected.name===m.name?'selected':'')} role="button" tabIndex="0" aria-label={`Select ${m.name}`} onClick={()=>choose(m)} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(m)}}}><circle r="7"/><circle r="15" className="hit"/><text x="13" y="-11">{m.name}</text></g>})}
+          </svg>
+          <div className="map-legend"><span><i className="legend-dot selected-dot"></i>Selected peak</span><span><i className="legend-line"></i>Range axis</span><span>Map boundaries simplified from Natural Earth geography</span></div>
         </div>
 
         <aside className="detail-card">
-          <div className="detail-image">
-            <img className="detail-photo" src={selected.image} alt={`${selected.name} mountain`} />
-            <div className="detail-image-copy">
-              <small>{selected.sub} · {selected.range}</small>
-              <strong>{selected.name}</strong>
-            </div>
-          </div>
-          <div className="detail-body">
-            <div className="verified">✓ CORE RECORD VERIFIED</div>
-            <div className="stats">
-              <div><small>Elevation</small><strong>{selected.elevation}</strong></div>
-              <div><small>First ascent</small><strong>{selected.firstAscent}</strong></div>
-            </div>
-            <div className="taxonomy"><b>{selected.range}</b> · {selected.sub}<br/>{selected.country}</div>
-            <h2>{selected.status}</h2>
-            <p>{selected.note}</p>
-            <div className="photo-credit">{selected.credit}</div>
-            <button className="explore-button" onClick={() => document.getElementById('nanda')?.scrollIntoView({behavior:'smooth'})}>Explore mountain page</button>
-          </div>
+          <div className="detail-image"><img className="detail-photo" src={selected.image} alt={`${selected.name} mountain`}/><div className="detail-image-copy"><small>{selected.sub} · {selected.range}</small><strong>{selected.name}</strong></div></div>
+          <div className="detail-body"><div className="verified">✓ CORE RECORD</div><div className="stats"><div><small>Elevation</small><strong>{selected.elevation}</strong></div><div><small>First ascent</small><strong>{selected.firstAscent}</strong></div></div><div className="taxonomy"><b>{selected.range}</b> · {selected.sub}<br/>{selected.country}</div><h2>{selected.status}</h2><p>{selected.lead}</p><div className="photo-credit">{selected.credit}</div><button className="explore-button" onClick={()=>choose(selected,true)}>Explore {selected.name}</button></div>
         </aside>
-      </section>
+      </div>
+    </section>
 
-      <section className="collection">
-        <div className="section-heading"><div><span>FOUNDING COLLECTION</span><h2>Start with the great peaks.</h2></div><p>The atlas deliberately crosses range boundaries so the geography stays accurate.</p></div>
-        <div className="cards">
-          {mountains.map(m => <button key={m.name} onClick={() => {setSelected(m); setRange('All'); window.scrollTo({top: 430, behavior:'smooth'})}} className={selected.name === m.name ? 'mountain-card active-card' : 'mountain-card'}><small>{m.range}</small><strong>{m.name}</strong><span>{m.elevation}<br/>{m.sub}</span></button>)}
-        </div>
-      </section>
+    <section className="collection"><div className="section-heading"><div><span>02 · FOUNDING COLLECTION</span><h2>Start with the great peaks.</h2></div><p>Selecting a mountain changes the map, the summary card and the full story below.</p></div><div className="cards">{mountains.map(m=><button key={m.name} onClick={()=>{setRange('All');choose(m,true)}} className={selected.name===m.name?'mountain-card active-card':'mountain-card'}><small>{m.range}</small><strong>{m.name}</strong><span>{m.elevation}<br/>{m.sub}</span></button>)}</div></section>
 
-      <section className="mountain-page" id="nanda">
-        <div className="mountain-hero">
-          <img className="mountain-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nanda_Devi_peak.jpg/1280px-Nanda_Devi_peak.jpg" alt="Nanda Devi in the Garhwal Himalaya" />
-          <div className="mountain-overlay"></div>
-          <div className="mountain-copy"><small>MOUNTAIN 011 · GARHWAL HIMALAYA · INDIA</small><h2>Nanda Devi</h2><p>नन्दा देवी · “Bliss-Giving Goddess”</p><div><span>7,817 m</span><span>Chamoli, Uttarakhand</span><span>First ascent · 1936</span><span>Protected sanctuary</span></div></div>
-        </div>
-        <div className="mountain-content">
-          <article><small>01 · THE MOUNTAIN</small><h3>A summit inside a fortress.</h3><p className="lead">Nanda Devi rises from one of the most extraordinary natural enclosures in the Himalaya: a ring of high ridges and peaks broken by the Rishi Ganga gorge.</p><p>UNESCO describes Nanda Devi National Park as an exceptionally beautiful West Himalayan wilderness dominated by the 7,817-metre summit of Nanda Devi. Its isolation is part of its character: reaching the Inner Sanctuary historically required passage through the formidable Rishi Ganga gorge.</p></article>
-          <aside className="record"><small>CORE RECORD</small><strong>7,817 <i>m</i></strong><dl><div><dt>Range</dt><dd>Garhwal Himalaya</dd></div><div><dt>District</dt><dd>Chamoli, Uttarakhand</dd></div><div><dt>Country</dt><dd>India</dd></div><div><dt>First ascent</dt><dd>Tilman & Odell · 1936</dd></div><div><dt>Protection</dt><dd>UNESCO World Heritage landscape</dd></div></dl></aside>
-        </div>
-        <div className="history"><div><small>02 · EXPEDITION HISTORY</small><h3>The way in was almost as important as the way up.</h3></div><div className="timeline"><div><b>1934</b><p><strong>Inner Sanctuary reached.</strong><br/>Eric Shipton and H. W. Tilman pioneered a passage through the upper Rishi Ganga gorge.</p></div><div><b>1936</b><p><strong>First ascent.</strong><br/>Bill Tilman and Noel Odell reached Nanda Devi’s summit.</p></div><div><b>1983</b><p><strong>Protection tightened.</strong><br/>Mountaineering and adventure activity inside the national park were banned after environmental degradation.</p></div><div><b>1988</b><p><strong>World Heritage recognition.</strong><br/>Nanda Devi National Park entered UNESCO’s World Heritage List.</p></div></div></div>
-        <div className="sources"><small>03 · SOURCES & NOTES</small><h3>Evidence stays visible.</h3><p>Core geographic, protected-area and historical facts are based on UNESCO World Heritage Centre material. Travel and permit information should always be time-stamped and rechecked before a trip.</p><div className="photo-license-note">Nanda Devi photograph: Ashwani Kumar, CC BY-SA 4.0, via Wikimedia Commons. Other mountain photographs carry their credit directly in the explorer.</div><div className="source-grid"><div><b>UNESCO</b><span>Elevation, protected landscape, history and conservation status.</span></div><div><b>Uttarakhand Tourism</b><span>Visitor approach, seasonal access and permit guidance.</span></div><div><b>EDITORIAL RULE</b><span>Travel information expires; permanent facts and current access are stored separately.</span></div></div><div className="checked">RECORD CHECKED · AUGUST 2026</div></div>
-      </section>
+    <section className="mountain-page" id="mountain-story" key={selected.slug}>
+      <div className="mountain-hero"><img className="mountain-photo" src={selected.image} alt={`${selected.name} in ${selected.sub}`}/><div className="mountain-overlay"></div><div className="mountain-copy"><small>{selected.range.toUpperCase()} · {selected.sub.toUpperCase()} · {selected.country.toUpperCase()}</small><h2>{selected.name}</h2><p>{selected.local}</p><div><span>{selected.elevation}</span><span>{selected.region}</span><span>First ascent · {selected.firstAscent}</span><span>{selected.status}</span></div></div></div>
+      <div className="mountain-content"><article><small>03 · THE MOUNTAIN</small><h3>{selected.headline}</h3><p className="lead">{selected.lead}</p><p>{selected.body}</p></article><aside className="record"><small>CORE RECORD</small><strong>{selected.elevation.replace(' m','')} <i>m</i></strong><dl><div><dt>Range</dt><dd>{selected.range}</dd></div><div><dt>Sub-range</dt><dd>{selected.sub}</dd></div><div><dt>Region</dt><dd>{selected.region}</dd></div><div><dt>Country</dt><dd>{selected.country}</dd></div><div><dt>First ascent</dt><dd>{selected.firstAscent}</dd></div></dl></aside></div>
+      <div className="history"><div><small>04 · EXPEDITION / CULTURAL HISTORY</small><h3>{selected.name}, through time.</h3></div><div className="timeline">{selected.history.map(([year,title,text])=><div key={year+title}><b>{year}</b><p><strong>{title}</strong><br/>{text}</p></div>)}</div></div>
+      <div className="sources"><small>05 · SOURCES & NOTES</small><h3>Evidence stays visible.</h3><p>This page separates stable geographic facts from historical accounts and changing travel information. Access, permits and route conditions should always be rechecked before travel.</p><div className="photo-license-note">Photograph: {selected.credit}</div><div className="source-grid">{selected.sources.map(s=><div key={s}><b>{s}</b><span>Used for geographic, historical or visitor context in the atlas record.</span></div>)}<div><b>EDITORIAL RULE</b><span>Travel information expires; permanent facts and current access are stored separately.</span></div></div><div className="checked">RECORD CHECKED · AUGUST 2026</div></div>
+    </section>
 
-      <footer>HIGH ASIA · MOUNTAIN ATLAS <span>Built for free static hosting</span></footer>
-    </main>
-  )
+    <footer>HIGH ASIA · MOUNTAIN ATLAS <span>Built for free static hosting</span></footer>
+  </main>
 }
