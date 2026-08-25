@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 const countries = {
   Pakistan:["M354.9,133.9 L310.3,139.8 L249.6,130.0 L230.0,147.3 L258.1,209.4 L290.3,229.2 L256.2,252.3 L256.9,280.8 L218.0,320.9 L193.0,361.5 L151.1,403.5 L104.7,400.4 L60.6,442.4 L86.8,460.3 L91.3,491.1 L113.8,511.4 L121.7,545.7 L33.7,545.6 L19.4,560.0 L0.0,560.0 L0.0,255.3 L22.3,251.5 L37.1,255.2 L52.7,243.9 L50.5,219.9 L67.5,195.8 L92.9,185.7 L77.2,159.2 L115.3,160.4 L126.3,146.0 L124.6,130.7 L144.5,113.9 L130.5,77.0 L153.9,59.6 L242.7,46.6 L286.3,34.7 L315.9,53.3 L327.7,84.1 L393.5,100.2 L354.9,133.9 Z"],
@@ -30,8 +30,31 @@ function project(lon, lat){
 export default function Home(){
   const [range,setRange]=useState('All')
   const [selectedSlug,setSelectedSlug]=useState('nanda-devi')
+  const [activeChapter,setActiveChapter]=useState(0)
+  const [scrollProgress,setScrollProgress]=useState(0)
   const selected=useMemo(()=>mountains.find(m=>m.slug===selectedSlug) || mountains[0],[selectedSlug])
   const filtered=useMemo(()=>range==='All'?mountains:mountains.filter(m=>m.range===range),[range])
+  const selectedPoint=useMemo(()=>project(selected.lon,selected.lat),[selected])
+
+  useEffect(()=>{
+    const onScroll=()=>{
+      const doc=document.documentElement
+      const total=Math.max(1,doc.scrollHeight-window.innerHeight)
+      setScrollProgress(Math.min(1,Math.max(0,window.scrollY/total)))
+    }
+    onScroll(); window.addEventListener('scroll',onScroll,{passive:true})
+    return ()=>window.removeEventListener('scroll',onScroll)
+  },[])
+
+  useEffect(()=>{
+    const nodes=[...document.querySelectorAll('[data-story-step]')]
+    if(!nodes.length)return
+    const obs=new IntersectionObserver(entries=>{
+      const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0]
+      if(visible) setActiveChapter(Number(visible.target.getAttribute('data-story-step'))||0)
+    },{rootMargin:'-32% 0px -48% 0px',threshold:[0,.25,.6,1]})
+    nodes.forEach(n=>obs.observe(n)); return ()=>obs.disconnect()
+  },[selectedSlug])
 
   function choose(m, scroll=false){
     setSelectedSlug(m.slug)
@@ -39,6 +62,7 @@ export default function Home(){
   }
 
   return <main>
+    <div className="scroll-progress" aria-hidden="true"><i style={{transform:`scaleX(${scrollProgress})`}}/></div>
     <header className="masthead"><div className="brand">HIGH ASIA</div><div className="edition">MOUNTAIN ATLAS · FOUNDING EDITION</div></header>
 
     <section className="hero"><div className="hero-inner"><div><div className="kicker">Explore the roof of the world</div><h1>Mountains,<br/>in context.</h1></div><p>Explore ranges, sacred landscapes, expedition history and the journeys that lead toward them.</p></div></section>
@@ -50,6 +74,7 @@ export default function Home(){
         <div className="geo-panel">
           <div className="map-label">HIGH ASIA · REAL GEOGRAPHIC POSITIONS</div>
           <svg viewBox="0 0 1000 560" role="img" aria-label="Map of major mountains across High Asia">
+            <g className="map-world" style={{transformOrigin:`${selectedPoint[0]}px ${selectedPoint[1]}px`,transform:`scale(${range==='All'?1.018:1.05})`}}>
             <defs><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#dfe5df"/><stop offset="1" stopColor="#cfd7cf"/></linearGradient></defs>
             <rect width="1000" height="560" fill="url(#sea)"/>
             {Object.entries(countries).map(([name,paths])=>paths.map((d,i)=><path key={name+i} d={d} className={'country '+name.toLowerCase()}/>))}
@@ -59,6 +84,8 @@ export default function Home(){
             <text x="445" y="335" className="map-country-label">INDIA</text><text x="612" y="420" className="map-country-label">NEPAL</text><text x="125" y="300" className="map-country-label">PAKISTAN</text><text x="590" y="110" className="map-country-label">TIBET / CHINA</text><text x="870" y="420" className="map-country-label">BHUTAN</text>
             <text x="520" y="300" className="range-label">HIMALAYA</text><text x="120" y="92" className="range-label">KARAKORAM</text><text x="485" y="150" className="range-label">TRANSHIMALAYA</text>
             {filtered.map(m=>{const [x,y]=project(m.lon,m.lat);return <g key={m.name} transform={`translate(${x} ${y})`} className={'map-peak '+(selected.name===m.name?'selected':'')} role="button" tabIndex="0" aria-label={`Select ${m.name}`} onClick={()=>choose(m)} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(m)}}}><circle r="7"/><circle r="15" className="hit"/><text x="13" y="-11">{m.name}</text></g>})}
+            </g>
+            <circle className="map-radar" cx={selectedPoint[0]} cy={selectedPoint[1]} r="20"/>
           </svg>
           <div className="map-legend"><span><i className="legend-dot selected-dot"></i>Selected peak</span><span><i className="legend-line"></i>Range axis</span><span>Map boundaries simplified from Natural Earth geography</span></div>
         </div>
@@ -73,10 +100,14 @@ export default function Home(){
     <section className="collection"><div className="section-heading"><div><span>02 · FOUNDING COLLECTION</span><h2>Start with the great peaks.</h2></div><p>Selecting a mountain changes the map, the summary card and the full story below.</p></div><div className="cards">{mountains.map(m=><button key={m.name} onClick={()=>{setRange('All');choose(m,true)}} className={selected.name===m.name?'mountain-card active-card':'mountain-card'}><small>{m.range}</small><strong>{m.name}</strong><span>{m.elevation}<br/>{m.sub}</span></button>)}</div></section>
 
     <section className="mountain-page" id="mountain-story" key={selected.slug}>
-      <div className="mountain-hero"><img className="mountain-photo" src={selected.image} alt={`${selected.name} in ${selected.sub}`}/><div className="mountain-overlay"></div><div className="mountain-copy"><small>{selected.range.toUpperCase()} · {selected.sub.toUpperCase()} · {selected.country.toUpperCase()}</small><h2>{selected.name}</h2><p>{selected.local}</p><div><span>{selected.elevation}</span><span>{selected.region}</span><span>First ascent · {selected.firstAscent}</span><span>{selected.status}</span></div></div></div>
-      <div className="mountain-content"><article><small>03 · THE MOUNTAIN</small><h3>{selected.headline}</h3><p className="lead">{selected.lead}</p><p>{selected.body}</p></article><aside className="record"><small>CORE RECORD</small><strong>{selected.elevation.replace(' m','')} <i>m</i></strong><dl><div><dt>Range</dt><dd>{selected.range}</dd></div><div><dt>Sub-range</dt><dd>{selected.sub}</dd></div><div><dt>Region</dt><dd>{selected.region}</dd></div><div><dt>Country</dt><dd>{selected.country}</dd></div><div><dt>First ascent</dt><dd>{selected.firstAscent}</dd></div></dl></aside></div>
-      <div className="history"><div><small>04 · EXPEDITION / CULTURAL HISTORY</small><h3>{selected.name}, through time.</h3></div><div className="timeline">{selected.history.map(([year,title,text])=><div key={year+title}><b>{year}</b><p><strong>{title}</strong><br/>{text}</p></div>)}</div></div>
-      <div className="sources"><small>05 · SOURCES & NOTES</small><h3>Evidence stays visible.</h3><p>This page separates stable geographic facts from historical accounts and changing travel information. Access, permits and route conditions should always be rechecked before travel.</p><div className="photo-license-note">Photograph: {selected.credit}</div><div className="source-grid">{selected.sources.map(s=><div key={s}><b>{s}</b><span>Used for geographic, historical or visitor context in the atlas record.</span></div>)}<div><b>EDITORIAL RULE</b><span>Travel information expires; permanent facts and current access are stored separately.</span></div></div><div className="checked">RECORD CHECKED · AUGUST 2026</div></div>
+      <div className={'mountain-hero chapter-'+activeChapter}><img className="mountain-photo" src={selected.image} alt={`${selected.name} in ${selected.sub}`}/><div className="mountain-atmosphere" aria-hidden="true"><span/><span/><span/></div><div className="mountain-overlay"></div><div className="mountain-copy"><small>{selected.range.toUpperCase()} · {selected.sub.toUpperCase()} · {selected.country.toUpperCase()}</small><h2>{selected.name}</h2><p>{selected.local}</p><div><span>{selected.elevation}</span><span>{selected.region}</span><span>First ascent · {selected.firstAscent}</span><span>{selected.status}</span></div></div></div>
+      <div className="mountain-content reveal" data-story-step="0"><article><small>03 · THE MOUNTAIN</small><h3>{selected.headline}</h3><p className="lead">{selected.lead}</p><p>{selected.body}</p><div className="living-note"><span className="pulse-dot"></span>Scroll to travel through the story</div></article><aside className="record"><small>CORE RECORD</small><strong>{selected.elevation.replace(' m','')} <i>m</i></strong><dl><div><dt>Range</dt><dd>{selected.range}</dd></div><div><dt>Sub-range</dt><dd>{selected.sub}</dd></div><div><dt>Region</dt><dd>{selected.region}</dd></div><div><dt>Country</dt><dd>{selected.country}</dd></div><div><dt>First ascent</dt><dd>{selected.firstAscent}</dd></div></dl></aside></div>
+      <div className="storytelling">
+        <aside className="story-visual"><div className="story-compass"><span>N</span><i></i></div><div className="story-altitude"><small>STORY ALTITUDE</small><div><i style={{height:`${Math.min(96,22+activeChapter*14)}%`}}></i></div><strong>{activeChapter===0?'LANDSCAPE':selected.history[Math.min(activeChapter-1,selected.history.length-1)]?.[0]||'PRESENT'}</strong></div><p>{selected.name}<br/><span>{selected.sub}</span></p></aside>
+        <div className="story-steps"><div className="story-step" data-story-step="1"><small>04 · ORIGIN</small><h3>Enter the landscape.</h3><p>{selected.lead}</p></div>{selected.history.map(([year,title,text],i)=><div className="story-step" data-story-step={i+2} key={year+title}><small>{year}</small><h3>{title}</h3><p>{text}</p></div>)}<div className="story-step" data-story-step={selected.history.length+2}><small>NOW</small><h3>The mountain continues.</h3><p>{selected.body}</p></div></div>
+      </div>
+      <div className="history"><div><small>05 · EXPEDITION / CULTURAL HISTORY</small><h3>{selected.name}, through time.</h3></div><div className="timeline">{selected.history.map(([year,title,text])=><div key={year+title}><b>{year}</b><p><strong>{title}</strong><br/>{text}</p></div>)}</div></div>
+      <div className="sources"><small>06 · SOURCES & NOTES</small><h3>Evidence stays visible.</h3><p>This page separates stable geographic facts from historical accounts and changing travel information. Access, permits and route conditions should always be rechecked before travel.</p><div className="photo-license-note">Photograph: {selected.credit}</div><div className="source-grid">{selected.sources.map(s=><div key={s}><b>{s}</b><span>Used for geographic, historical or visitor context in the atlas record.</span></div>)}<div><b>EDITORIAL RULE</b><span>Travel information expires; permanent facts and current access are stored separately.</span></div></div><div className="checked">RECORD CHECKED · AUGUST 2026</div></div>
     </section>
 
     <footer>HIGH ASIA · MOUNTAIN ATLAS <span>Built for free static hosting</span></footer>
