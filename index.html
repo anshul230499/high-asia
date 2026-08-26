@@ -1,0 +1,1795 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="High Asia — an atlas of mountains, journeys and life at altitude.">
+<title>High Asia</title>
+<style>
+:root{--navy:#06182a;--navy2:#0a2440;--white:#fff;--ice:#eef4f7;--muted:#667987;--forest:#102d25;--ivory:#f5f2e8;--line:#cdd7de}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,'Times New Roman',serif;background:#fff;color:#071a2c}button{font:inherit}.top{position:sticky;top:0;z-index:50;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:22px;padding:17px 28px;background:rgba(6,24,42,.96);backdrop-filter:blur(10px);color:#fff;border-bottom:1px solid rgba(255,255,255,.12)}.logo{border:0;background:none;color:#fff;font:700 11px Arial,sans-serif;letter-spacing:.34em;cursor:pointer;text-align:left}.world-nav{display:flex;gap:24px;justify-content:center}.world-nav button{border:0;background:none;color:rgba(255,255,255,.56);font:700 8px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:8px 0;cursor:pointer;border-bottom:1px solid transparent}.world-nav button.active{color:#fff;border-color:#fff}.edition{text-align:right;font:700 7px Arial,sans-serif;letter-spacing:.15em;color:rgba(255,255,255,.62)}.view{display:none}.view.active{display:block}.hero{position:relative;min-height:680px;display:flex;align-items:flex-end;overflow:hidden;background:var(--navy);color:#fff}.hero:before{content:"";position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.72) contrast(1.08);transform:scale(1.015)}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,14,26,.14),rgba(2,14,26,.2) 42%,rgba(2,14,26,.86))}.mountain-hero:before{background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Everest%2C_Himalayas.jpg/1280px-Everest%2C_Himalayas.jpg')}.hero-copy{position:relative;z-index:2;width:100%;padding:70px max(24px,7vw) 54px}.hero small,.section-label{font:700 8px Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase}.hero h1{font-size:clamp(76px,12vw,180px);line-height:.78;letter-spacing:-.075em;font-weight:400;margin:18px 0 28px}.hero p{font:13px/1.75 Arial,sans-serif;max-width:500px;color:rgba(255,255,255,.8)}.atlas{padding:80px max(24px,5vw) 100px}.atlas-head{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end;max-width:1350px;margin:0 auto 34px}.atlas-head h2,.hills-intro p{font-size:clamp(38px,5vw,72px);font-weight:400;line-height:1;letter-spacing:-.045em;margin:10px 0}.atlas-head p{font:12px/1.7 Arial,sans-serif;color:var(--muted)}.filters{display:flex;gap:8px;overflow:auto;max-width:1350px;margin:0 auto 16px}.filters button{min-height:42px;padding:0 16px;border:1px solid #b7c6d0;background:#fff;color:var(--navy2);font:700 9px Arial,sans-serif;cursor:pointer}.filters button.active{background:var(--navy);color:#fff;border-color:var(--navy)}.atlas-grid{max-width:1350px;margin:auto;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,.6fr);gap:18px}.map{min-height:555px;background:var(--navy);position:relative;overflow:hidden;border:1px solid #173a58}.map svg{width:100%;height:100%;min-height:555px}.country{fill:#113454;stroke:#62839b;stroke-width:1}.ridge{fill:none;stroke:#9ec0d5;stroke-width:2;stroke-dasharray:7 8;opacity:.6}.peak{cursor:pointer}.peak circle{fill:#fff;stroke:#8eb4c9;stroke-width:2}.peak.selected circle{fill:#77a9c3;stroke:#fff;stroke-width:3}.peak text{font:700 10px Arial,sans-serif;fill:#fff;paint-order:stroke;stroke:var(--navy);stroke-width:3px}.detail{background:#fff;border:1px solid var(--line)}.detail-photo{height:270px;position:relative;overflow:hidden;background:var(--navy)}.detail-photo img{width:100%;height:100%;object-fit:cover;display:block}.detail-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(3,17,30,.75))}.detail-name{position:absolute;z-index:2;left:18px;bottom:18px;color:#fff}.detail-name small{font:700 8px Arial,sans-serif;letter-spacing:.14em}.detail-name h3{font-size:34px;font-weight:400;margin:6px 0 0}.detail-body{padding:23px}.detail-stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.detail-stats div{padding:14px 0}.detail-stats div+div{border-left:1px solid var(--line);padding-left:15px}.detail-stats small{display:block;font:700 8px Arial,sans-serif;letter-spacing:.12em;color:var(--muted)}.detail-stats strong{display:block;font-size:21px;margin-top:6px}.detail-body p{font:12px/1.72 Arial,sans-serif;color:var(--muted)}.story{background:linear-gradient(180deg,#06182a,#0a2440 55%,#0d2e4e);color:#fff;padding:95px max(24px,8vw);position:relative;overflow:hidden}.story:before{content:"";position:absolute;inset:0;opacity:.55;background-image:radial-gradient(circle at 12% 18%,#fff 0 1px,transparent 1.4px),radial-gradient(circle at 32% 8%,#fff 0 1px,transparent 1.5px),radial-gradient(circle at 55% 24%,#fff 0 1px,transparent 1.3px),radial-gradient(circle at 74% 12%,#fff 0 1px,transparent 1.5px),radial-gradient(circle at 92% 28%,#fff 0 1px,transparent 1.3px);background-size:220px 180px,260px 220px,290px 250px,240px 200px,310px 260px}.story-inner{position:relative;z-index:1;max-width:1150px;margin:auto}.story h2{font-size:clamp(48px,7vw,96px);font-weight:400;line-height:.9;letter-spacing:-.055em;margin:14px 0 45px}.milestones{display:grid;gap:80px}.milestone{display:grid;grid-template-columns:.9fr 1.1fr;gap:45px;align-items:center}.polaroid{background:#f5f1e7;padding:10px 10px 30px;color:#2b3640;transform:rotate(-2deg);box-shadow:0 16px 35px rgba(0,0,0,.25)}.milestone:nth-child(even) .polaroid{transform:rotate(2deg)}.polaroid img{width:100%;height:280px;object-fit:cover;display:block;filter:saturate(.68) contrast(1.06)}.polaroid p{font:italic 13px/1.5 Georgia,serif;margin:12px 8px 0}.milestone-copy small{font:700 8px Arial,sans-serif;letter-spacing:.18em;color:#a8c5d7}.milestone-copy h3{font-size:clamp(35px,4.5vw,62px);font-weight:400;line-height:1;margin:10px 0 16px}.milestone-copy p{font:13px/1.8 Arial,sans-serif;color:rgba(255,255,255,.7)}.journey{padding:72px max(24px,8vw);background:#fff}.journey-inner{max-width:1150px;margin:auto}.journey-head{display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:end}.journey h2{font-size:clamp(42px,6vw,82px);line-height:.94;font-weight:400;letter-spacing:-.055em;margin:12px 0}.journey-head p{font:12px/1.7 Arial,sans-serif;color:var(--muted)}.journey-tabs{display:flex;overflow:auto;border-bottom:1px solid var(--line);margin-top:30px}.journey-tabs button{border:0;background:none;padding:15px 18px;font:700 9px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#718493;cursor:pointer;border-bottom:2px solid transparent}.journey-tabs button.active{color:var(--navy);border-color:var(--navy)}.journey-panel{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;padding:35px 0 15px}.journey-panel h3{font-size:36px;font-weight:400;margin:0 0 12px}.journey-panel p{font:12px/1.7 Arial,sans-serif;color:var(--muted)}.links a{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid var(--line);font:11px/1.4 Arial,sans-serif;color:var(--navy);text-decoration:none}.hills-hero:before{background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Darjeeling%20tea%20gardens.jpg');filter:saturate(.62) contrast(1.02)}.hills-hero:after{background:linear-gradient(180deg,rgba(12,42,33,.14),rgba(12,42,33,.2) 42%,rgba(10,35,27,.88))}.hills-intro{background:var(--ivory);padding:100px max(24px,8vw);display:grid;grid-template-columns:.45fr 1.55fr;gap:55px}.hills-intro small{color:#5d7168}.hills-intro p{color:#183028;margin:0}.stations{background:var(--ivory);padding:10px 30px 120px;display:grid;grid-template-columns:1fr 1fr;gap:100px 36px}.station:nth-child(even){margin-top:120px}.station-photo{height:540px;overflow:hidden;background:#23493a}.station-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.65) contrast(1.05);transition:transform 1s ease}.station:hover img{transform:scale(1.025)}.station-copy{padding:24px 4px 0}.station-copy small{font:700 8px Arial,sans-serif;letter-spacing:.15em;color:#62786e}.station-copy h2{font-size:clamp(46px,6vw,80px);line-height:.9;letter-spacing:-.055em;font-weight:400;margin:10px 0 14px;color:var(--forest)}.station-copy p{font:italic 18px/1.5 Georgia,serif;color:#455b51;max-width:520px}.rail{background:var(--forest);color:#fff;padding:120px max(24px,8vw)}.rail h2{font-size:clamp(65px,10vw,140px);font-weight:400;line-height:.82;letter-spacing:-.07em;margin:18px 0 25px}.rail p{font:10px Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#bdccc5}.foot{padding:28px;background:var(--navy);color:#cfdbe3;font:700 8px Arial,sans-serif;letter-spacing:.15em;display:flex;justify-content:space-between}@media(max-width:800px){.top{grid-template-columns:1fr auto}.world-nav{grid-row:2;grid-column:1/3;justify-content:flex-start;overflow:auto}.edition{display:none}.hero{min-height:560px}.hero h1{font-size:clamp(68px,20vw,108px)}.atlas-head,.atlas-grid,.journey-head,.journey-panel,.milestone,.hills-intro{grid-template-columns:1fr}.map{min-height:430px;overflow:auto}.map svg{min-width:700px;min-height:430px}.polaroid img{height:220px}.stations{grid-template-columns:1fr;padding:0 20px 80px;gap:70px}.station:nth-child(even){margin-top:0}.station-photo{height:420px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.station-photo img{transition:none}}
+
+/* Aesthetic v2 — cleaner geographic explorer */
+.map{background:#041523;border-color:#19364d;box-shadow:inset 0 0 90px rgba(83,137,173,.05)}
+.map-grid path{stroke:#b5d0df;stroke-width:.65;opacity:.08}
+.contours{fill:none;stroke:#88abc0;stroke-width:1.3;opacity:.22}
+.ridge{stroke:#d5e6ef;stroke-width:1.6;stroke-dasharray:none;opacity:.48}
+.ridge-secondary{opacity:.26}
+.map-region{font:700 10px Arial,sans-serif;letter-spacing:.24em;fill:#dceaf2;opacity:.72}
+.map-place{font:700 8px Arial,sans-serif;letter-spacing:.21em;fill:#7696aa;opacity:.7}
+.map-key{position:absolute;left:18px;right:18px;bottom:13px;display:flex;justify-content:space-between;gap:12px;color:#8ba7b9;font:700 7px Arial,sans-serif;letter-spacing:.14em}
+.peak circle{fill:#f9fdff;stroke:#76a0b8;stroke-width:2}.peak.selected circle{fill:#a4c9da;stroke:#fff;filter:drop-shadow(0 0 6px rgba(176,220,240,.65))}
+.peak text{font-size:9px;letter-spacing:.04em}
+
+/* Hill Stations — misty editorial garden */
+.hills-hero{min-height:760px}
+.hills-hero:before{background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Kanchenjunga%20range%20from%20tea%20gardens%20of%20darjeeling.jpg')!important;filter:saturate(.58) contrast(1.04) brightness(.86)!important}
+.hills-hero:after{background:linear-gradient(180deg,rgba(9,31,24,.16),rgba(9,31,24,.12) 35%,rgba(8,29,23,.88) 100%)!important}
+.hills-hero .hero-copy{padding-bottom:80px}
+.hills-hero h1{font-size:clamp(84px,13vw,190px)}
+.hills-intro{background:#f4f0e6;padding-top:120px;padding-bottom:120px}
+.hills-intro p{max-width:1050px;font-size:clamp(34px,4.6vw,68px)}
+.hill-manifesto{background:#142f27;color:#f5f0e6;padding:95px max(24px,8vw);display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:end}
+.hill-manifesto small{font:700 8px Arial,sans-serif;letter-spacing:.22em;color:#b8c8bd}
+.hill-manifesto h2{font-size:clamp(58px,8vw,118px);font-weight:400;line-height:.82;letter-spacing:-.065em;margin:18px 0 0}
+.hill-manifesto p{font:italic 19px/1.55 Georgia,serif;color:#c8d3cc;max-width:500px}
+.stations{background:#f4f0e6;padding-top:110px;gap:150px 46px}
+.station:nth-child(even){margin-top:150px}
+.station-photo{height:620px;position:relative;box-shadow:0 18px 46px rgba(35,55,45,.10)}
+.station-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 62%,rgba(12,37,29,.28))}
+.station-photo img{filter:saturate(.72) contrast(1.04)}
+.station-number{position:absolute;z-index:2;top:17px;left:18px;color:#fff;font:700 8px Arial,sans-serif;letter-spacing:.18em}
+.station-copy{padding-top:30px}
+.station-copy h2{font-size:clamp(54px,6.4vw,92px)}
+.station-copy>p{font-size:20px;line-height:1.55;max-width:560px}
+.station-gallery{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;margin-top:34px;align-items:start}
+.station-mini{margin:0;background:#e6dfd2;padding:7px 7px 15px;box-shadow:0 12px 30px rgba(47,62,52,.10);transform:rotate(-1.4deg)}
+.station-mini-1{margin-top:46px;transform:rotate(1.8deg)}
+.station-mini img{display:block;width:100%;height:230px;object-fit:cover;filter:saturate(.68) contrast(1.04)}
+.station-mini figcaption{font:italic 12px/1.45 Georgia,serif;color:#43564c;padding:10px 6px 0}
+.rail{background:#0c241d;padding-top:150px;padding-bottom:150px}
+.rail:before{content:"MOUNTAIN RAILWAYS";display:block;font:700 8px Arial,sans-serif;letter-spacing:.24em;color:#8fa79c;margin-bottom:28px}
+.rail h2{font-size:clamp(70px,11vw,155px)}
+@media(max-width:800px){
+  .hill-manifesto{grid-template-columns:1fr;gap:24px;padding-top:70px;padding-bottom:70px}
+  .hills-hero{min-height:620px}
+  .stations{padding-top:70px;gap:90px}
+  .station-photo{height:480px}
+  .station-gallery{grid-template-columns:1fr 1fr}
+  .station-mini img{height:170px}
+  .station-mini-1{margin-top:24px}
+}
+
+
+/* Real geographic map v3 */
+.map{background:#031321!important;border-color:#284c66!important}
+.real-countries .country{stroke:#7a9bae!important;stroke-width:1.35!important}
+.real-countries .pakistan{fill:#102f4a!important}
+.real-countries .india{fill:#153a58!important}
+.real-countries .nepal{fill:#1c4968!important}
+.real-countries .bhutan{fill:#214f6b!important}
+.real-countries .china{fill:#0c2943!important}
+.mountain-belt{fill:none;stroke:#d5e8f2;stroke-width:1.5;stroke-dasharray:5 7;opacity:.38}
+.map-country-label{font:700 9px Arial,sans-serif;letter-spacing:.18em;fill:#a6bfce;opacity:.72}
+.range-label{font:700 10px Arial,sans-serif;letter-spacing:.25em;fill:#e0edf4;opacity:.72}
+.map-key{color:#94afbf!important}
+.peak circle{fill:#fff!important;stroke:#82abc0!important}
+.peak.selected circle{fill:#91c1d8!important;stroke:#fff!important;filter:drop-shadow(0 0 7px rgba(171,219,240,.7))}
+.peak text{stroke:#031321!important}
+
+/* Unique vibrant Hill Stations opening */
+.hills-hero:before{
+  background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Mt.%20Kanchenjunga%20from%20Darjeeling%2C%20West%20Bengal.jpg')!important;
+  background-position:center 44%!important;
+  filter:saturate(1.08) contrast(1.07) brightness(.92)!important;
+  transform:scale(1.02)!important;
+}
+.hills-hero:after{
+  background:linear-gradient(180deg,rgba(6,31,23,.02) 0%,rgba(6,31,23,.08) 42%,rgba(7,31,23,.76) 100%)!important;
+}
+.hills-hero .hero-copy small{color:#fff4d9!important;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.hills-hero .hero-copy p{color:rgba(255,255,255,.9)!important}
+
+
+/* v4 RESTORE — editorial typography + spacing + themes */
+:root{
+  --navy:#06182a;
+  --navy2:#0a2440;
+  --ink:#071a2c;
+  --white:#ffffff;
+  --ivory:#f6f2e8;
+  --forest:#102d25;
+  --forest2:#183c31;
+  --line:#cdd7de;
+  --muted:#667987;
+}
+html,body{background:#fff!important;color:var(--ink)!important}
+body{font-family:Georgia,'Times New Roman',serif!important}
+.top{
+  grid-template-columns:1fr auto 1fr!important;
+  padding:18px 30px!important;
+  background:rgba(6,24,42,.97)!important;
+}
+.logo{font:700 11px Arial,sans-serif!important;letter-spacing:.34em!important}
+.world-nav{gap:26px!important}
+.world-nav button{font:700 8px Arial,sans-serif!important;letter-spacing:.15em!important}
+.edition{font:700 7px Arial,sans-serif!important;letter-spacing:.16em!important}
+
+.hero{min-height:690px!important}
+.hero-copy{padding:76px max(28px,7vw) 58px!important}
+.hero h1{
+  font-family:Georgia,'Times New Roman',serif!important;
+  font-size:clamp(82px,12vw,182px)!important;
+  line-height:.78!important;
+  letter-spacing:-.075em!important;
+  font-weight:400!important;
+  margin:18px 0 30px!important;
+}
+.hero p{font:13px/1.75 Arial,sans-serif!important;max-width:500px!important}
+.section-label,.hero small{font:700 8px Arial,sans-serif!important;letter-spacing:.24em!important}
+
+.atlas{padding:90px max(26px,5vw) 110px!important;background:#fff!important}
+.atlas-head{
+  grid-template-columns:1.15fr .85fr!important;
+  gap:64px!important;
+  max-width:1380px!important;
+  margin-bottom:38px!important;
+}
+.atlas-head h2{
+  font-size:clamp(42px,5.4vw,78px)!important;
+  line-height:.96!important;
+  letter-spacing:-.05em!important;
+}
+.atlas-head p{font:12px/1.75 Arial,sans-serif!important;color:var(--muted)!important}
+.filters{margin-bottom:18px!important}
+.filters button{
+  min-height:44px!important;
+  padding:0 18px!important;
+  background:#fff!important;
+  color:var(--navy2)!important;
+  border:1px solid #b9c8d2!important;
+  font:700 9px Arial,sans-serif!important;
+}
+.filters button.active{background:var(--navy)!important;color:#fff!important;border-color:var(--navy)!important}
+
+.atlas-grid{
+  grid-template-columns:minmax(0,1.55fr) minmax(320px,.58fr)!important;
+  gap:20px!important;
+  max-width:1380px!important;
+}
+.map{min-height:570px!important}
+.map svg{min-height:570px!important}
+.detail{background:#fff!important;border:1px solid var(--line)!important}
+.detail-photo{height:280px!important}
+.detail-name h3{font-size:36px!important}
+.detail-body{padding:24px!important}
+.detail-stats small{font:700 8px Arial,sans-serif!important}
+.detail-stats strong{font-size:22px!important}
+.detail-body p{font:12px/1.75 Arial,sans-serif!important;color:var(--muted)!important}
+
+.story{
+  padding:110px max(28px,8vw) 120px!important;
+  background:linear-gradient(180deg,#06182a,#0a2440 55%,#0d2e4e)!important;
+}
+.story h2{
+  font-size:clamp(54px,7.5vw,105px)!important;
+  line-height:.88!important;
+  letter-spacing:-.06em!important;
+}
+.milestones{gap:95px!important}
+.milestone{grid-template-columns:.95fr 1.05fr!important;gap:56px!important}
+.polaroid{padding:10px 10px 30px!important}
+.polaroid img{height:300px!important}
+.polaroid p{font:italic 13px/1.52 Georgia,serif!important}
+.milestone-copy h3{
+  font-size:clamp(38px,4.8vw,68px)!important;
+  line-height:.98!important;
+  letter-spacing:-.045em!important;
+}
+.milestone-copy p{font:13px/1.82 Arial,sans-serif!important}
+
+.journey{padding:82px max(28px,8vw)!important;background:#fff!important}
+.journey-inner{max-width:1180px!important}
+.journey-head{grid-template-columns:1.15fr .85fr!important;gap:52px!important}
+.journey h2{
+  font-size:clamp(46px,6.3vw,88px)!important;
+  line-height:.92!important;
+  letter-spacing:-.055em!important;
+}
+.journey-panel{gap:50px!important}
+.journey-panel h3{font-size:38px!important}
+.journey-panel p{font:12px/1.75 Arial,sans-serif!important}
+.links a{font:11px/1.45 Arial,sans-serif!important}
+
+/* Hill Stations: restore elegant sister identity */
+.hills-hero{
+  min-height:760px!important;
+  background:#16372d!important;
+}
+.hills-hero .hero-copy{padding-bottom:84px!important}
+.hills-hero h1{
+  font-size:clamp(86px,13vw,190px)!important;
+  line-height:.78!important;
+  letter-spacing:-.075em!important;
+}
+.hills-hero p{font:13px/1.78 Arial,sans-serif!important;max-width:520px!important}
+
+.hills-intro{
+  background:var(--ivory)!important;
+  padding:120px max(30px,8vw)!important;
+  grid-template-columns:.45fr 1.55fr!important;
+  gap:60px!important;
+}
+.hills-intro p{
+  font-size:clamp(36px,4.8vw,70px)!important;
+  line-height:1.12!important;
+  letter-spacing:-.04em!important;
+  color:#183028!important;
+}
+.hill-manifesto{
+  background:#153128!important;
+  color:#f6f2e8!important;
+  padding:105px max(30px,8vw)!important;
+  grid-template-columns:1.2fr .8fr!important;
+  gap:70px!important;
+}
+.hill-manifesto h2{
+  font-size:clamp(62px,8.4vw,124px)!important;
+  line-height:.82!important;
+  letter-spacing:-.065em!important;
+}
+.hill-manifesto p{font:italic 20px/1.6 Georgia,serif!important;color:#ccd6cf!important}
+
+.stations{
+  background:var(--ivory)!important;
+  padding:120px 34px 140px!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:150px 48px!important;
+}
+.station:nth-child(even){margin-top:150px!important}
+.station-photo{height:620px!important}
+.station-copy{padding-top:32px!important}
+.station-copy small{font:700 8px Arial,sans-serif!important;letter-spacing:.16em!important}
+.station-copy h2{
+  font-size:clamp(56px,6.6vw,96px)!important;
+  line-height:.9!important;
+  letter-spacing:-.06em!important;
+  color:var(--forest)!important;
+}
+.station-copy>p{
+  font:italic 20px/1.56 Georgia,serif!important;
+  color:#455b51!important;
+  max-width:570px!important;
+}
+.station-gallery{
+  grid-template-columns:1.15fr .85fr!important;
+  gap:14px!important;
+  margin-top:36px!important;
+}
+.station-mini{background:#e8e0d2!important}
+.station-mini img{height:235px!important}
+.station-mini figcaption{font:italic 12px/1.45 Georgia,serif!important}
+
+.rail{
+  background:#0d241d!important;
+  padding:145px max(30px,8vw)!important;
+}
+.rail h2{
+  font-size:clamp(72px,11vw,155px)!important;
+  line-height:.82!important;
+  letter-spacing:-.07em!important;
+}
+.rail p{font:10px Arial,sans-serif!important;letter-spacing:.15em!important}
+
+.foot{padding:30px!important;background:var(--navy)!important}
+
+@media(max-width:900px){
+  .top{grid-template-columns:1fr auto!important}
+  .world-nav{grid-row:2;grid-column:1/3;justify-content:flex-start!important;overflow:auto}
+  .edition{display:none!important}
+  .atlas-head,.atlas-grid,.journey-head,.journey-panel,.milestone,.hills-intro,.hill-manifesto{grid-template-columns:1fr!important}
+  .atlas-grid{gap:18px!important}
+  .map{min-height:450px!important;overflow:auto!important}
+  .map svg{min-width:760px!important;min-height:450px!important}
+  .stations{grid-template-columns:1fr!important;padding:80px 20px 100px!important;gap:90px!important}
+  .station:nth-child(even){margin-top:0!important}
+  .station-photo{height:470px!important}
+  .station-gallery{grid-template-columns:1fr 1fr!important}
+  .station-mini img{height:175px!important}
+}
+@media(max-width:560px){
+  .hero{min-height:560px!important}
+  .hero h1,.hills-hero h1{font-size:clamp(66px,20vw,108px)!important}
+  .atlas,.story,.journey,.hills-intro,.hill-manifesto,.rail{padding-left:20px!important;padding-right:20px!important}
+  .polaroid img{height:220px!important}
+}
+
+
+/* v5 layout refinement */
+
+/* Let the map truly own the width */
+.atlas{padding-left:max(20px,3.2vw)!important;padding-right:max(20px,3.2vw)!important}
+.atlas-head,.filters,.atlas-grid{max-width:none!important;width:100%!important}
+.atlas-grid{
+  display:block!important;
+}
+.map{
+  width:100%!important;
+  min-height:610px!important;
+  border-radius:0!important;
+}
+.map svg{
+  width:100%!important;
+  min-height:610px!important;
+  display:block!important;
+}
+.detail{
+  margin-top:22px!important;
+  display:grid!important;
+  grid-template-columns:minmax(280px,.42fr) minmax(0,1fr)!important;
+  align-items:stretch!important;
+}
+.detail-photo{height:100%!important;min-height:290px!important}
+.detail-body{padding:30px 34px!important}
+.detail-stats{max-width:520px!important}
+
+/* Journey section: smaller, calmer, more breathing room */
+.journey{
+  padding-top:105px!important;
+  padding-bottom:110px!important;
+}
+.journey-inner{
+  max-width:1180px!important;
+}
+.journey-head{
+  grid-template-columns:.9fr 1.1fr!important;
+  gap:70px!important;
+  align-items:start!important;
+  margin-bottom:10px!important;
+}
+.journey h2{
+  font-size:clamp(34px,4.4vw,62px)!important;
+  line-height:1.02!important;
+  letter-spacing:-.045em!important;
+  margin-top:14px!important;
+  margin-bottom:12px!important;
+}
+.journey-head p{
+  font-size:13px!important;
+  line-height:1.85!important;
+  max-width:520px!important;
+  padding-top:22px!important;
+}
+.journey-tabs{
+  margin-top:44px!important;
+}
+.journey-tabs button{
+  padding:17px 20px!important;
+}
+.journey-panel{
+  grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr)!important;
+  gap:72px!important;
+  padding-top:50px!important;
+  padding-bottom:35px!important;
+}
+.journey-panel h3{
+  font-size:clamp(26px,3vw,40px)!important;
+  line-height:1.08!important;
+  margin-bottom:16px!important;
+}
+.journey-panel p{
+  font-size:13px!important;
+  line-height:1.85!important;
+}
+.links{
+  padding-top:2px!important;
+}
+.links a{
+  padding:14px 0!important;
+  line-height:1.5!important;
+}
+
+/* Give the practical section more visual pauses */
+#journey-copy{
+  padding-right:18px!important;
+}
+#journey-links{
+  border-left:1px solid var(--line)!important;
+  padding-left:34px!important;
+}
+
+/* Responsive behavior */
+@media(max-width:900px){
+  .detail{
+    grid-template-columns:1fr!important;
+  }
+  .detail-photo{
+    min-height:320px!important;
+  }
+  .journey-head,.journey-panel{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+  }
+  .journey-head p{padding-top:0!important}
+  #journey-links{
+    border-left:0!important;
+    border-top:1px solid var(--line)!important;
+    padding-left:0!important;
+    padding-top:24px!important;
+  }
+  .map{overflow:auto!important}
+  .map svg{min-width:820px!important}
+}
+@media(max-width:560px){
+  .journey{padding-top:78px!important;padding-bottom:80px!important}
+  .journey h2{font-size:38px!important}
+  .journey-tabs{margin-left:-20px!important;margin-right:-20px!important;padding-left:8px!important}
+  .journey-panel{padding-top:36px!important}
+}
+
+
+/* v6 serenity + desktop explorer restoration */
+.atlas{padding-left:max(24px,5vw)!important;padding-right:max(24px,5vw)!important}
+.atlas-head,.filters,.atlas-grid{max-width:1380px!important;margin-left:auto!important;margin-right:auto!important}
+.atlas-grid{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.48fr) minmax(300px,.58fr)!important;
+  gap:20px!important;
+}
+.map{
+  width:auto!important;
+  min-height:555px!important;
+}
+.map svg{
+  width:100%!important;
+  min-height:555px!important;
+}
+.detail{
+  margin-top:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+.detail-photo{
+  height:270px!important;
+  min-height:270px!important;
+}
+.detail-body{
+  padding:24px!important;
+}
+.detail-stats{
+  max-width:none!important;
+}
+
+/* Journey: serene, editorial, spacious */
+.journey{
+  padding-top:100px!important;
+  padding-bottom:115px!important;
+}
+.journey-inner{
+  max-width:1120px!important;
+}
+.journey-head{
+  display:grid!important;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)!important;
+  gap:82px!important;
+  align-items:start!important;
+  margin-bottom:4px!important;
+}
+.journey h2{
+  font-size:clamp(30px,3.3vw,48px)!important;
+  line-height:1.12!important;
+  letter-spacing:-.035em!important;
+  max-width:540px!important;
+  margin:16px 0 0!important;
+  font-weight:400!important;
+}
+.journey-head p{
+  font-size:13px!important;
+  line-height:1.95!important;
+  color:#667987!important;
+  max-width:560px!important;
+  padding-top:28px!important;
+}
+.journey-tabs{
+  margin-top:52px!important;
+}
+.journey-tabs button{
+  padding:16px 20px!important;
+  font-size:8px!important;
+  letter-spacing:.13em!important;
+}
+.journey-panel{
+  grid-template-columns:minmax(0,1.2fr) minmax(250px,.8fr)!important;
+  gap:72px!important;
+  padding-top:52px!important;
+  padding-bottom:34px!important;
+}
+#journey-copy{
+  max-width:690px!important;
+  padding-right:0!important;
+}
+.journey-panel h3{
+  font-size:clamp(24px,2.6vw,36px)!important;
+  line-height:1.12!important;
+  margin:8px 0 18px!important;
+  font-weight:400!important;
+}
+.journey-panel p{
+  font-size:13px!important;
+  line-height:1.95!important;
+  color:#657987!important;
+  margin:0!important;
+}
+#journey-links{
+  border-left:1px solid var(--line)!important;
+  padding-left:32px!important;
+  padding-top:2px!important;
+}
+.links a{
+  padding:14px 0!important;
+  font-size:11px!important;
+  line-height:1.5!important;
+}
+
+/* More visual calm */
+.journey .section-label{
+  color:#496274!important;
+}
+.journey-tabs{
+  border-bottom-color:#d8e0e5!important;
+}
+.journey-tabs button.active{
+  color:#06182a!important;
+  border-color:#06182a!important;
+}
+
+@media(max-width:900px){
+  .atlas-grid{
+    grid-template-columns:1fr!important;
+  }
+  .detail{
+    display:grid!important;
+    grid-template-columns:280px 1fr!important;
+    margin-top:0!important;
+  }
+  .detail-photo{
+    height:100%!important;
+    min-height:290px!important;
+  }
+  .journey-head,.journey-panel{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+  }
+  .journey-head p{padding-top:0!important}
+  #journey-links{
+    border-left:0!important;
+    border-top:1px solid var(--line)!important;
+    padding-left:0!important;
+    padding-top:24px!important;
+  }
+}
+@media(max-width:650px){
+  .detail{
+    grid-template-columns:1fr!important;
+  }
+  .detail-photo{
+    min-height:300px!important;
+  }
+  .journey{
+    padding-top:76px!important;
+    padding-bottom:85px!important;
+  }
+  .journey h2{
+    font-size:34px!important;
+    line-height:1.15!important;
+  }
+  .journey-tabs{
+    margin-left:-20px!important;
+    margin-right:-20px!important;
+    padding-left:6px!important;
+  }
+}
+
+
+/* v7 — Himalayan frame; map itself unchanged */
+.map{
+  position:relative!important;
+  border:1px solid #29475c!important;
+  outline:7px solid #f3f6f7!important;
+  box-shadow:
+    0 0 0 8px #b7c8d2,
+    0 0 0 14px #ffffff,
+    0 18px 42px rgba(5,24,39,.10)!important;
+  margin:14px!important;
+  width:calc(100% - 28px)!important;
+  overflow:hidden!important;
+}
+.map:before{
+  content:"";
+  position:absolute;
+  z-index:4;
+  left:0;right:0;bottom:0;
+  height:44px;
+  pointer-events:none;
+  opacity:.88;
+  background:
+    linear-gradient(135deg,transparent 0 42%,#dce6eb 43% 50%,transparent 51%) 0 100%/78px 42px repeat-x,
+    linear-gradient(45deg,transparent 0 44%,#a9bfcb 45% 51%,transparent 52%) 38px 100%/96px 34px repeat-x;
+}
+.map:after{
+  content:"HIGH ASIA  ·  HIMALAYA";
+  position:absolute;
+  z-index:5;
+  right:18px;
+  top:15px;
+  padding:7px 10px 6px;
+  background:rgba(4,21,35,.72);
+  border:1px solid rgba(210,229,239,.35);
+  color:#e8f1f5;
+  font:700 7px Arial,sans-serif;
+  letter-spacing:.22em;
+  pointer-events:none;
+}
+.map-key{
+  z-index:6!important;
+  bottom:12px!important;
+  padding-bottom:0!important;
+}
+@media(max-width:900px){
+  .map{
+    margin:10px!important;
+    width:calc(100% - 20px)!important;
+    outline-width:5px!important;
+    box-shadow:0 0 0 6px #b7c8d2,0 0 0 10px #fff!important;
+  }
+}
+
+
+/* v8 — full-bleed map across the page, detail card retained below */
+.atlas{
+  padding-left:0!important;
+  padding-right:0!important;
+}
+.atlas-head,.filters{
+  width:auto!important;
+  max-width:1380px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.atlas-head{
+  padding-left:max(24px,5vw)!important;
+  padding-right:max(24px,5vw)!important;
+}
+.filters{
+  margin-left:max(24px,5vw)!important;
+  margin-right:max(24px,5vw)!important;
+}
+.atlas-grid{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+}
+.map{
+  width:100%!important;
+  margin:18px 0 0!important;
+  min-height:620px!important;
+  border-left:0!important;
+  border-right:0!important;
+  outline:0!important;
+  box-shadow:
+    inset 0 1px 0 #b7c8d2,
+    inset 0 -1px 0 #b7c8d2!important;
+}
+.map svg{
+  width:100%!important;
+  min-height:620px!important;
+}
+.map:before{height:48px!important}
+.detail{
+  width:calc(100% - max(48px,10vw))!important;
+  max-width:1380px!important;
+  margin:24px auto 0!important;
+  display:grid!important;
+  grid-template-columns:minmax(300px,.42fr) minmax(0,1fr)!important;
+}
+.detail-photo{
+  height:100%!important;
+  min-height:300px!important;
+}
+@media(max-width:900px){
+  .map{
+    width:100%!important;
+    margin:12px 0 0!important;
+    min-height:470px!important;
+    box-shadow:inset 0 1px 0 #b7c8d2,inset 0 -1px 0 #b7c8d2!important;
+  }
+  .map svg{min-width:800px!important;min-height:470px!important}
+  .detail{
+    width:calc(100% - 40px)!important;
+    grid-template-columns:1fr!important;
+  }
+}
+
+
+/* v9 — TRUE viewport-width Himalayan map */
+.atlas{
+  overflow:visible!important;
+}
+
+.atlas-grid{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  overflow:visible!important;
+}
+
+.map{
+  position:relative!important;
+  width:100vw!important;
+  max-width:none!important;
+  min-height:640px!important;
+  margin-left:calc(50% - 50vw)!important;
+  margin-right:calc(50% - 50vw)!important;
+  margin-top:20px!important;
+  border-left:0!important;
+  border-right:0!important;
+  outline:0!important;
+  box-shadow:
+    inset 0 1px 0 #9fb7c5,
+    inset 0 -1px 0 #9fb7c5!important;
+  overflow:hidden!important;
+}
+
+.map svg{
+  display:block!important;
+  width:100vw!important;
+  max-width:none!important;
+  height:clamp(640px,56vw,860px)!important;
+  min-height:640px!important;
+}
+
+.map-key{
+  left:32px!important;
+  right:32px!important;
+}
+
+.detail{
+  width:min(1380px,calc(100% - 80px))!important;
+  max-width:1380px!important;
+  margin:28px auto 0!important;
+  display:grid!important;
+  grid-template-columns:minmax(320px,.42fr) minmax(0,1fr)!important;
+  align-items:stretch!important;
+}
+
+.detail-photo{
+  height:100%!important;
+  min-height:310px!important;
+}
+
+@media(max-width:900px){
+  .map{
+    width:100vw!important;
+    margin-left:calc(50% - 50vw)!important;
+    margin-right:calc(50% - 50vw)!important;
+    min-height:480px!important;
+    overflow-x:auto!important;
+  }
+
+  .map svg{
+    width:1000px!important;
+    min-width:1000px!important;
+    height:560px!important;
+    min-height:560px!important;
+  }
+
+  .detail{
+    width:calc(100% - 40px)!important;
+    grid-template-columns:1fr!important;
+  }
+
+  .detail-photo{
+    min-height:300px!important;
+  }
+}
+
+
+/* v10 — borderless, shorter panoramic map */
+.map{
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  min-height:430px!important;
+  height:clamp(430px,38vw,560px)!important;
+}
+.map:before,
+.map:after{
+  display:none!important;
+  content:none!important;
+}
+.map svg{
+  width:100vw!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:none!important;
+  display:block!important;
+}
+.map-key{
+  bottom:10px!important;
+}
+@media(max-width:900px){
+  .map{
+    min-height:390px!important;
+    height:430px!important;
+  }
+  .map svg{
+    width:1000px!important;
+    min-width:1000px!important;
+    height:430px!important;
+    min-height:430px!important;
+  }
+}
+
+
+/* v11 — restore classic desktop explorer: map left, mountain card right */
+.atlas{
+  padding-left:max(24px,5vw)!important;
+  padding-right:max(24px,5vw)!important;
+}
+.atlas-head,.filters,.atlas-grid{
+  max-width:1380px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.atlas-grid{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.52fr) minmax(310px,.58fr)!important;
+  gap:20px!important;
+  width:auto!important;
+  overflow:visible!important;
+}
+.map{
+  width:auto!important;
+  max-width:none!important;
+  margin:0!important;
+  min-height:520px!important;
+  height:520px!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+.map svg{
+  width:100%!important;
+  height:100%!important;
+  min-height:520px!important;
+  min-width:0!important;
+  display:block!important;
+}
+.detail{
+  width:auto!important;
+  max-width:none!important;
+  margin:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  min-width:0!important;
+  border:1px solid var(--line)!important;
+}
+.detail-photo{
+  height:265px!important;
+  min-height:265px!important;
+}
+.detail-body{
+  padding:24px!important;
+}
+.detail-stats{
+  max-width:none!important;
+}
+.map-key{
+  left:18px!important;
+  right:18px!important;
+  bottom:10px!important;
+}
+@media(max-width:900px){
+  .atlas-grid{
+    grid-template-columns:1fr!important;
+  }
+  .map{
+    height:430px!important;
+    min-height:430px!important;
+    overflow-x:auto!important;
+  }
+  .map svg{
+    width:760px!important;
+    min-width:760px!important;
+    height:430px!important;
+    min-height:430px!important;
+  }
+  .detail{
+    display:grid!important;
+    grid-template-columns:280px 1fr!important;
+  }
+  .detail-photo{
+    height:100%!important;
+    min-height:290px!important;
+  }
+}
+@media(max-width:650px){
+  .detail{
+    grid-template-columns:1fr!important;
+  }
+  .detail-photo{
+    min-height:300px!important;
+  }
+}
+
+
+/* v12 — borderless snowy physical geography */
+.physical-map{
+  position:relative!important;
+  background:#08223a!important;
+  overflow:hidden!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+.physical-map svg{display:block!important}
+.plateau{fill:#c6d5dc;opacity:.18}
+.foothills{fill:#102f49}
+.foothills-a{opacity:.82}
+.foothills-b{fill:#234f68;opacity:.72}
+.snow-belt{fill:url(#snowSpine);opacity:.78;filter:url(#reliefBlur)}
+.ridge-faces path{fill:#5f8498;stroke:#a9c2cf;stroke-width:1;opacity:.78}
+.snow-caps path{fill:#f7fbfd;opacity:.92}
+.glaciers path{fill:none;stroke:#eaf5fa;stroke-width:6;stroke-linecap:round;opacity:.38}
+.rivers path{fill:none;stroke:#a9d0e3;stroke-width:1.15;opacity:.42}
+.geo-labels text{
+  font:700 8px Arial,sans-serif;
+  letter-spacing:.18em;
+  fill:#d8e6ed;
+  opacity:.72;
+}
+.geo-labels .plateau-label{font-size:9px;opacity:.58}
+.geo-labels .himalaya-label{font-size:10px;letter-spacing:.28em;opacity:.82}
+.map-note{
+  position:absolute;
+  left:16px;
+  bottom:12px;
+  z-index:8;
+  padding:6px 8px;
+  background:rgba(4,20,33,.62);
+  color:#dbe8ee;
+  font:700 7px Arial,sans-serif;
+  letter-spacing:.18em;
+}
+.snowflake{
+  fill:#fff;
+  opacity:.5;
+  animation:snowDrift linear infinite;
+}
+@keyframes snowDrift{
+  from{transform:translateY(-35px) translateX(0)}
+  to{transform:translateY(610px) translateX(24px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .snowflake{animation:none!important;opacity:.28}
+}
+
+
+/* v13 — real geographic physical-map treatment */
+.geographic-map{
+  background-image:
+    linear-gradient(rgba(5,22,36,.18),rgba(5,22,36,.20)),
+    var(--terrain-image)!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-color:#0a2237!important;
+}
+.geographic-map .terrain-photo{
+  fill:transparent!important;
+}
+.geographic-map svg{
+  background:transparent!important;
+}
+.physical-lines .river-line{
+  fill:none;
+  stroke:#c4e0ed;
+  stroke-width:1.15;
+  opacity:.42;
+}
+.physical-lines .range-trace{
+  fill:none;
+  stroke:#f2f7f9;
+  stroke-width:1.2;
+  stroke-dasharray:5 7;
+  opacity:.45;
+}
+.refined-labels text{
+  font:700 8px Arial,sans-serif;
+  letter-spacing:.18em;
+  fill:#f2f7fa;
+  paint-order:stroke;
+  stroke:#0b2336;
+  stroke-width:2.5px;
+  opacity:.82;
+}
+.refined-labels .plateau-label{
+  font-size:9px;
+  opacity:.68;
+}
+.refined-labels .himalaya-label{
+  font-size:10px;
+  letter-spacing:.30em;
+  opacity:.9;
+}
+.geographic-map .peak circle{
+  fill:#fff!important;
+  stroke:#8fb7c9!important;
+}
+.geographic-map .peak.selected circle{
+  fill:#b9deef!important;
+  stroke:#fff!important;
+}
+.geographic-map .peak text{
+  fill:#fff!important;
+  stroke:#071b2d!important;
+  stroke-width:3px!important;
+}
+.geographic-map .map-note{
+  background:rgba(4,20,33,.66)!important;
+}
+
+
+/* v14 — clean, borderless, edge-to-edge geographic map */
+.atlas{
+  padding-left:0!important;
+  padding-right:0!important;
+  overflow:visible!important;
+}
+.atlas-head,.filters{
+  max-width:1380px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding-left:max(24px,5vw)!important;
+  padding-right:max(24px,5vw)!important;
+  box-sizing:border-box!important;
+}
+.atlas-grid{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+}
+.geographic-map{
+  width:100vw!important;
+  max-width:none!important;
+  margin-left:calc(50% - 50vw)!important;
+  margin-right:calc(50% - 50vw)!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  border-radius:0!important;
+  height:clamp(470px,42vw,610px)!important;
+  min-height:470px!important;
+}
+.geographic-map svg{
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  border:0!important;
+  outline:0!important;
+}
+.geographic-map:before,
+.geographic-map:after{
+  display:none!important;
+  content:none!important;
+}
+.detail{
+  width:min(1380px,calc(100% - max(48px,10vw)))!important;
+  max-width:1380px!important;
+  margin:26px auto 0!important;
+  display:grid!important;
+  grid-template-columns:minmax(300px,.42fr) minmax(0,1fr)!important;
+}
+.detail-photo{height:100%!important;min-height:300px!important}
+@media(max-width:900px){
+  .geographic-map{
+    height:430px!important;
+    min-height:430px!important;
+    overflow-x:auto!important;
+  }
+  .geographic-map svg{
+    width:900px!important;
+    min-width:900px!important;
+    height:430px!important;
+  }
+  .detail{
+    width:calc(100% - 40px)!important;
+    grid-template-columns:1fr!important;
+  }
+}
+
+
+/* v15 — clean natural satellite map, no tint/filter */
+.geographic-map{
+  background-image:var(--terrain-image)!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-color:#d9e0dc!important;
+  filter:none!important;
+}
+.geographic-map::before,
+.geographic-map::after{
+  display:none!important;
+  content:none!important;
+  background:none!important;
+}
+.geographic-map svg{
+  background:transparent!important;
+  filter:none!important;
+}
+.geographic-map .terrain-photo{
+  fill:transparent!important;
+}
+.geographic-map .physical-lines .river-line{
+  stroke:#d9f0f6!important;
+  opacity:.32!important;
+}
+.geographic-map .physical-lines .range-trace{
+  stroke:#ffffff!important;
+  opacity:.34!important;
+}
+.geographic-map .refined-labels text{
+  fill:#ffffff!important;
+  stroke:#26352f!important;
+  stroke-width:2.2px!important;
+  opacity:.86!important;
+}
+.geographic-map .map-note{
+  background:rgba(20,29,25,.58)!important;
+  color:#fff!important;
+}
+
+
+/* v16 — resilient geographic map: real raster + built-in relief fallback */
+.geographic-map{
+  position:relative!important;
+  background:#17364a!important;
+  background-image:none!important;
+  filter:none!important;
+  overflow:hidden!important;
+}
+.geographic-map .terrain-raster{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  z-index:0;
+  filter:none!important;
+  opacity:1!important;
+}
+.geographic-map svg{
+  position:relative;
+  z-index:1;
+  background:transparent!important;
+}
+.geographic-map .terrain-fallback{
+  opacity:.72;
+}
+.geographic-map .terrain-raster + svg .terrain-fallback{
+  opacity:.20;
+}
+.geographic-map .physical-lines .river-line{
+  stroke:#d9edf3!important;
+  opacity:.30!important;
+}
+.geographic-map .physical-lines .range-trace{
+  stroke:#ffffff!important;
+  opacity:.34!important;
+}
+.geographic-map .refined-labels text{
+  fill:#ffffff!important;
+  stroke:#26352f!important;
+  stroke-width:2.1px!important;
+  opacity:.88!important;
+}
+.geographic-map .map-note{
+  background:rgba(20,29,25,.62)!important;
+  color:#fff!important;
+}
+
+
+/* v17 — fully developed Mountain Railways chapter */
+.rail{padding:125px max(24px,7vw)!important}
+.rail-head{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:end;max-width:1400px;margin:0 auto 70px}
+.rail-head h2{margin-bottom:0!important}
+.rail-head>p{font:italic 18px/1.6 Georgia,serif!important;letter-spacing:0!important;text-transform:none!important;color:#c6d1cb!important;max-width:560px}
+.rail-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rail-card{background:#f4f0e6;color:#183028;overflow:hidden;display:flex;flex-direction:column}
+.rail-card>img{width:100%;height:290px;object-fit:cover;display:block;filter:saturate(.72) contrast(1.04)}
+.rail-copy{padding:27px 28px 30px;display:flex;flex-direction:column;flex:1}
+.rail-copy>small{font:700 8px Arial,sans-serif;letter-spacing:.16em;color:#64776d}
+.rail-copy h3{font:400 35px/1 Georgia,serif;letter-spacing:-.035em;margin:12px 0 17px;color:#102d25}
+.rail-copy>p{font:13px/1.72 Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;color:#5b6e64!important}
+.rail-facts{display:flex;gap:8px;flex-wrap:wrap;margin:17px 0 22px}
+.rail-facts span{border:1px solid #bac6bf;padding:7px 9px;font:700 7px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#4d6257}
+.rail-copy a{margin-top:auto;border-top:1px solid #c3cec7;padding-top:14px;color:#17382c;text-decoration:none;font:700 9px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:980px){.rail-grid{grid-template-columns:1fr 1fr}.rail-card:last-child{grid-column:1/3}.rail-head{grid-template-columns:1fr;gap:20px}}
+@media(max-width:650px){.rail{padding:80px 20px!important}.rail-grid{grid-template-columns:1fr}.rail-card:last-child{grid-column:auto}.rail-card>img{height:240px}.rail-copy h3{font-size:32px}}
+
+
+/* v18 — section rhythm + map label collision polish */
+.atlas-head,.journey-head,.rail-head,.food-intro{
+  width:min(1380px,calc(100% - 64px))!important;
+  max-width:1380px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr)!important;
+  gap:72px!important;
+  align-items:end!important;
+}
+.atlas-head h2,.journey-head h2,.rail-head h2,.food-intro h2,
+.story h2,.hill-manifesto h2{
+  width:100%!important;
+  max-width:none!important;
+  text-wrap:balance;
+}
+.atlas-head p,.journey-head>p,.rail-head>p,.food-intro>p,.hill-manifesto>p{
+  width:100%!important;
+  max-width:560px!important;
+  justify-self:end!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+.story-inner{
+  width:min(1180px,calc(100% - 64px))!important;
+  max-width:1180px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.story #story-title{max-width:1000px!important}
+.hills-intro,.hill-manifesto{
+  grid-template-columns:minmax(220px,.45fr) minmax(0,1.55fr)!important;
+}
+.peak text{font-size:9px!important;letter-spacing:.015em!important}
+
+/* Food atlas */
+.food-world{background:#f6f0e5;color:#261e17}
+.food-hero{
+  min-height:680px;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background:#432d1d;
+}
+.food-hero-image{position:absolute;top:0;bottom:0;background-size:cover;background-position:center}
+.food-hero-a{left:0;width:58%;background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Orange%20Garden%20in%20Sittong%2C%20Darjeeling.jpg');filter:saturate(.95) contrast(1.04)}
+.food-hero-b{right:0;width:48%;background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Traditional%20Kulluvi%20Siddu.jpg');filter:saturate(.9) contrast(1.03)}
+.food-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(51,30,16,.24),rgba(51,30,16,.15) 46%,rgba(51,30,16,.38)),linear-gradient(180deg,transparent 35%,rgba(38,23,14,.82))}
+.food-hero-copy{position:relative;z-index:2;grid-column:1/3;align-self:end;padding:70px max(26px,7vw) 58px;color:#fff}
+.food-hero-copy small,.food-ending small{font:700 8px Arial,sans-serif;letter-spacing:.24em}
+.food-hero-copy h1{font:400 clamp(78px,12vw,175px)/.78 Georgia,serif;letter-spacing:-.075em;margin:18px 0 28px}
+.food-hero-copy p{font:13px/1.75 Arial,sans-serif;max-width:520px;color:rgba(255,255,255,.86)}
+.food-intro{padding-top:110px;padding-bottom:90px;align-items:start!important}
+.food-intro h2{font:400 clamp(48px,6.8vw,95px)/.9 Georgia,serif;letter-spacing:-.055em;margin:14px 0;color:#402d1e}
+.food-intro>p{font:italic 18px/1.62 Georgia,serif;color:#715c48}
+.food-grid{max-width:1440px;margin:auto;padding:20px 30px 140px;display:grid;grid-template-columns:repeat(2,1fr);gap:82px 32px}
+.food-card{background:#fffaf1;min-width:0}
+.food-card.food-wide{grid-column:1/3;display:grid;grid-template-columns:1.15fr .85fr}
+.food-card>img{width:100%;height:390px;object-fit:cover;display:block;background:#d6c3aa}
+.food-card.food-wide>img{height:100%;min-height:500px}
+.food-copy{padding:29px 30px 34px}
+.food-copy small{font:700 8px Arial,sans-serif;letter-spacing:.16em;color:#8a7058}
+.food-copy h2{font:400 clamp(42px,5.4vw,74px)/.92 Georgia,serif;letter-spacing:-.055em;color:#442f20;margin:11px 0 18px}
+.food-copy p{font:italic 17px/1.6 Georgia,serif;color:#685543;max-width:600px}
+.food-copy span{display:block;border-top:1px solid #ddcfbe;margin-top:25px;padding-top:13px;font:700 8px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#8b735e}
+.food-ending{background:#4a3020;color:#f8efe2;padding:115px max(28px,8vw)}
+.food-ending h2{font:400 clamp(58px,8vw,118px)/.84 Georgia,serif;letter-spacing:-.065em;margin:18px 0 28px}
+.food-ending p{font:italic 18px/1.65 Georgia,serif;color:#d7c5b1;max-width:650px}
+
+@media(max-width:900px){
+  .atlas-head,.journey-head,.rail-head,.food-intro{grid-template-columns:1fr!important;gap:22px!important;width:calc(100% - 40px)!important}
+  .atlas-head p,.journey-head>p,.rail-head>p,.food-intro>p{justify-self:start!important}
+  .hills-intro,.hill-manifesto{grid-template-columns:1fr!important}
+  .food-grid{grid-template-columns:1fr;padding-left:20px;padding-right:20px}
+  .food-card.food-wide{grid-column:auto;display:block}
+  .food-card.food-wide>img{min-height:0;height:390px}
+}
+@media(max-width:600px){
+  .food-hero{min-height:570px}
+  .food-hero-a{width:100%}.food-hero-b{display:none}
+  .food-hero-copy h1{font-size:70px}
+  .food-card>img,.food-card.food-wide>img{height:310px}
+}
+
+
+/* v19 — mountain-specific imagery, top-layer labels, edible connections */
+.peak-marker-layer{pointer-events:auto}
+.peak-label-layer{pointer-events:auto}
+.peak-label line{
+  stroke:rgba(255,255,255,.62);
+  stroke-width:.75;
+}
+.peak-label text{
+  font:700 9px Arial,sans-serif;
+  letter-spacing:.025em;
+  fill:#fff;
+  paint-order:stroke;
+  stroke:#102432;
+  stroke-width:3.6px;
+  stroke-linejoin:round;
+  cursor:pointer;
+}
+.peak-label.selected-label text{
+  font-size:10px;
+  fill:#f5fcff;
+}
+.peak-label.selected-label line{stroke:#fff;stroke-width:1.1}
+.peak-marker-layer .peak circle{cursor:pointer}
+.polaroid img{background:#cdd8de}
+.food-kitchen{
+  background:#efe4d4;
+  color:#402d1e;
+  padding:115px max(28px,7vw) 125px;
+}
+.food-kitchen-head{
+  max-width:1260px;
+  margin:0 auto 60px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:70px;
+  align-items:end;
+}
+.food-kitchen-head small{font:700 8px Arial,sans-serif;letter-spacing:.22em;color:#8b7159}
+.food-kitchen-head h2{
+  grid-column:1;
+  font:400 clamp(54px,7.4vw,105px)/.86 Georgia,serif;
+  letter-spacing:-.06em;
+  margin:15px 0 0;
+}
+.food-kitchen-head>p{
+  grid-column:2;
+  grid-row:1/3;
+  align-self:end;
+  font:italic 18px/1.65 Georgia,serif;
+  color:#715c49;
+  max-width:520px;
+}
+.kitchen-layout{
+  max-width:1260px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:300px minmax(0,1fr);
+  gap:22px;
+}
+.kitchen-places{
+  display:flex;
+  flex-direction:column;
+  border-top:1px solid #cdbda9;
+}
+.kitchen-places button{
+  appearance:none;
+  border:0;
+  border-bottom:1px solid #cdbda9;
+  background:transparent;
+  text-align:left;
+  padding:18px 12px;
+  cursor:pointer;
+  color:#735e49;
+}
+.kitchen-places button small{
+  display:block;
+  font:700 7px Arial,sans-serif;
+  letter-spacing:.14em;
+  margin-bottom:5px;
+}
+.kitchen-places button strong{
+  display:block;
+  font:400 21px/1.1 Georgia,serif;
+}
+.kitchen-places button.active{
+  background:#49301f;
+  color:#fff6e8;
+}
+.kitchen-panel{
+  min-height:470px;
+  display:grid;
+  grid-template-columns:minmax(300px,.85fr) minmax(0,1.15fr);
+  background:#fffaf2;
+}
+.kitchen-photo{min-height:470px;background:#d4c1aa}
+.kitchen-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.kitchen-copy{padding:48px 50px}
+.kitchen-copy>small{font:700 8px Arial,sans-serif;letter-spacing:.18em;color:#8b725b}
+.kitchen-copy h3{
+  font:400 clamp(38px,4.8vw,68px)/.92 Georgia,serif;
+  letter-spacing:-.05em;
+  margin:10px 0 22px;
+  color:#422d1e;
+}
+.kitchen-copy>p{font:italic 17px/1.65 Georgia,serif;color:#695542;max-width:600px}
+.kitchen-meta{margin-top:35px;border-top:1px solid #dfd1c0}
+.kitchen-meta>div{padding:16px 0;border-bottom:1px solid #dfd1c0}
+.kitchen-meta span{display:block;font:700 7px Arial,sans-serif;letter-spacing:.15em;color:#9a8169;margin-bottom:6px}
+.kitchen-meta strong{font:400 14px/1.55 Arial,sans-serif;color:#594635}
+@media(max-width:900px){
+  .food-kitchen-head{grid-template-columns:1fr;gap:22px}
+  .food-kitchen-head>p{grid-column:1;grid-row:auto}
+  .kitchen-layout{grid-template-columns:1fr}
+  .kitchen-places{display:grid;grid-template-columns:1fr 1fr}
+  .kitchen-panel{grid-template-columns:1fr}
+  .kitchen-photo{min-height:360px;height:360px}
+}
+@media(max-width:600px){
+  .food-kitchen{padding:80px 20px}
+  .food-kitchen-head h2{font-size:56px}
+  .kitchen-places{grid-template-columns:1fr}
+  .kitchen-copy{padding:32px 24px}
+}
+
+</style>
+</head>
+<body>
+<header class="top"><button class="logo" data-view="mountains">HIGH ASIA</button><nav class="world-nav"><button class="active" data-view="mountains">Mountains</button><button data-view="hills">Hill Stations</button><button data-view="food">Food</button><button disabled title="Coming soon">Journeys</button><button disabled title="Coming soon">Atlas</button></nav><div class="edition">STATIC VERIFIED · 2026</div></header>
+<main>
+<section id="mountains" class="view active">
+  <section class="hero mountain-hero"><div class="hero-copy"><small>Explore the roof of the world</small><h1>Mountains,<br>in context.</h1><p>Ranges, sacred landscapes, expedition history and the journeys that lead toward them.</p></div></section>
+  <section class="atlas"><div class="atlas-head"><div><small class="section-label">01 · GEOGRAPHIC EXPLORER</small><h2>Choose a range. Then choose a peak.</h2></div><p>The map is deliberately simplified for clarity. Every peak marker below is positioned from its longitude and latitude.</p></div><div class="filters" id="filters"></div><div class="atlas-grid"><div class="map physical-map geographic-map">
+<img class="terrain-raster" src="https://earthdata.nasa.gov/s3fs-public/imported/Himalayas_6Feb2017_Terra_lg.jpg" alt="" aria-hidden="true" onerror="this.style.display='none'">
+
+<svg id="map" viewBox="0 0 1000 560" preserveAspectRatio="xMidYMid meet" aria-label="Physical geography map of the Himalaya and Tibetan Plateau with mountain peak markers">
+<defs>
+  <linearGradient id="mapFade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#071b2d" stop-opacity=".28"/>
+    <stop offset=".72" stop-color="#071b2d" stop-opacity=".40"/>
+    <stop offset="1" stop-color="#071b2d" stop-opacity=".58"/>
+  </linearGradient>
+</defs>
+<g class="terrain-fallback" aria-hidden="true">
+  <rect width="1000" height="560" fill="#17364a"/>
+  <path d="M0 0H1000V175 C860 145 730 160 610 184 C500 205 395 188 300 155 C205 123 103 126 0 165Z" fill="#a9b7ad" opacity=".62"/>
+  <path d="M0 470 C105 420 196 397 300 416 C405 435 478 484 575 477 C680 468 758 414 847 408 C912 403 960 424 1000 443V560H0Z" fill="#45654f" opacity=".92"/>
+  <path d="M12 357 C104 292 172 248 238 241 C304 235 350 258 408 289 C474 325 522 337 579 330 C641 321 680 289 728 281 C785 274 824 302 867 320 C914 339 957 326 994 298
+           L1000 360 C955 387 910 398 860 382 C817 367 781 340 732 347 C680 354 641 387 584 395 C520 403 460 381 397 348 C338 318 297 300 239 309 C172 320 108 359 29 414Z"
+        fill="#e8edf0" opacity=".88"/>
+  <path d="M74 352 L143 266 L184 330 L226 241 L275 332 L323 270 L367 344Z" fill="#cdd9de"/>
+  <path d="M303 344 L370 273 L414 329 L463 247 L511 341 L552 286 L605 355Z" fill="#d9e3e7"/>
+  <path d="M555 350 L617 289 L658 331 L705 260 L753 340 L794 292 L845 355Z" fill="#d4e0e5"/>
+  <path d="M777 350 L831 305 L866 330 L911 280 L950 337 L983 310 L1000 345Z" fill="#dce5e9"/>
+  <g fill="#fff" opacity=".94">
+    <path d="M119 302 L143 266 L162 300 L174 291 L184 330 L160 316 L143 321Z"/>
+    <path d="M199 279 L226 241 L247 284 L259 276 L275 332 L246 311 L226 316Z"/>
+    <path d="M435 282 L463 247 L484 285 L495 278 L511 341 L483 316 L463 321Z"/>
+    <path d="M681 291 L705 260 L726 294 L738 286 L753 340 L728 319 L705 323Z"/>
+    <path d="M890 306 L911 280 L930 307 L940 301 L950 337 L931 323 L911 326Z"/>
+  </g>
+</g>
+
+<rect width="1000" height="560" class="terrain-photo"/>
+
+
+<g class="physical-lines">
+  <path class="river-line" d="M115 400 C215 380 290 392 368 424 C445 455 514 464 580 451"/>
+  <path class="river-line" d="M590 452 C670 430 720 394 788 384 C858 375 916 397 966 429"/>
+  <path class="range-trace" d="M55 320 C155 257 236 238 323 251 C420 266 486 327 571 335 C658 341 715 300 792 300 C870 301 928 328 980 302"/>
+</g>
+
+<g class="geo-labels refined-labels">
+  <text x="120" y="150">KARAKORAM</text>
+  <text x="305" y="192">LADAKH</text>
+  <text x="460" y="214">GARHWAL · KUMAON</text>
+  <text x="675" y="205">KHUMBU</text>
+  <text x="846" y="218">SIKKIM</text>
+  <text class="plateau-label" x="640" y="88">TIBETAN PLATEAU</text>
+  <text class="himalaya-label" x="420" y="360">HIMALAYA</text>
+</g>
+
+<g id="snowfall" aria-hidden="true"></g>
+<g id="peaks"></g>
+</svg>
+<div class="map-note">PHYSICAL GEOGRAPHY · SATELLITE RELIEF</div>
+</div>
+</div><aside class="detail"><div class="detail-photo"><img id="detail-image" alt=""><div class="detail-name"><small id="detail-sub"></small><h3 id="detail-name"></h3></div></div><div class="detail-body"><div class="detail-stats"><div><small>ELEVATION</small><strong id="detail-elev"></strong></div><div><small>FIRST ASCENT</small><strong id="detail-ascent"></strong></div></div><p id="detail-text"></p></div></aside></div></section>
+  <section class="story"><div class="story-inner"><small class="section-label">02 · STORY THROUGH TIME</small><h2 id="story-title"></h2><div class="milestones" id="milestones"></div></div></section>
+  <section class="journey"><div class="journey-inner"><div class="journey-head"><div><small class="section-label">03 · JOURNEY TO THE MOUNTAIN</small><h2>Go from admiring it to understanding the way there.</h2></div><p>Travel information stays compact until you ask for it. Budgets are regional estimates only and exclude international travel.</p></div><div class="journey-tabs" id="journey-tabs"></div><div class="journey-panel"><div id="journey-copy"></div><div class="links" id="journey-links"></div></div></div></section>
+</section>
+<section id="hills" class="view">
+  <section class="hero hills-hero"><div class="hero-copy"><small>The sister atlas</small><h1>Hill Stations<br>of India.</h1><p>Forest, rain, railways, tea, pilgrimage and life lived closer to the clouds.</p></div></section>
+  <section class="hills-intro"><small class="section-label">INHABITED HEIGHTS</small><p>The mountains tell the story of altitude at its wildest. Hill Stations follows what people built beneath and among them — towns, railways, gardens, monasteries and roads suspended above the plains.</p></section>
+  <section class="hill-manifesto"><div><small>FOREST · RAIN · RAILWAY · TEA</small><h2>Not resorts. Worlds in the mist.</h2></div><p>Each station is treated as a landscape of its own: an inhabited ridge, a climate, a railway, a garden, a memory of rain.</p></section>
+  <section class="stations" id="stations"></section>
+  <section class="rail">
+  <div class="rail-head">
+    <div><small class="section-label">MOUNTAIN RAILWAYS OF INDIA</small><h2>Three railways into the hills.</h2></div>
+    <p>All three are part of UNESCO’s Mountain Railways of India and remain operational — living pieces of engineering history rather than museum exhibits.</p>
+  </div>
+  <div class="rail-grid">
+    <article class="rail-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Darjeeling%20Himalayan%20Railway%2Ctoy%20train%20%282%29.jpg" alt="Darjeeling Himalayan Railway toy train">
+      <div class="rail-copy"><small>WEST BENGAL · OPENED 1881</small><h3>Darjeeling Himalayan Railway</h3><p>The little railway climbs from the plains toward Darjeeling through loops, reverses, roadside running and tea country. UNESCO records the heritage route at about 88.5 km, passing Ghoom at roughly 2,258 m.</p><div class="rail-facts"><span>≈ 88.5 km</span><span>610 mm gauge</span><span>Ghoom · 2,258 m</span></div><a href="https://whc.unesco.org/en/list/944/" target="_blank" rel="noreferrer">UNESCO record ↗</a></div>
+    </article>
+    <article class="rail-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kalka%E2%80%93Shimla%20Railway.jpg" alt="Kalka Shimla mountain railway">
+      <div class="rail-copy"><small>HIMACHAL PRADESH · HERITAGE LINE</small><h3>Kalka–Shimla Railway</h3><p>A narrow-gauge ascent from the foothills toward Shimla, engineered through an extraordinary sequence of curves, tunnels, bridges and viaducts. UNESCO describes the working line as roughly 96 km long.</p><div class="rail-facts"><span>≈ 96 km</span><span>762 mm gauge</span><span>Kalka → Shimla</span></div><a href="https://whc.unesco.org/en/list/944/" target="_blank" rel="noreferrer">UNESCO record ↗</a></div>
+    </article>
+    <article class="rail-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/NMR%20Train%20on%20viaduct%2005-02-26%2033.jpeg" alt="Nilgiri Mountain Railway crossing a viaduct">
+      <div class="rail-copy"><small>TAMIL NADU · COMPLETED 1908</small><h3>Nilgiri Mountain Railway</h3><p>The Nilgiri line climbs from tropical lowlands into cool high country using a distinctive rack-and-pinion system on its steepest sections. UNESCO records a climb from about 326 m to 2,203 m over roughly 46 km.</p><div class="rail-facts"><span>≈ 46 km</span><span>Rack railway</span><span>326 → 2,203 m</span></div><a href="https://whc.unesco.org/en/list/944/" target="_blank" rel="noreferrer">UNESCO record ↗</a></div>
+    </article>
+  </div>
+</section>
+</section>
+
+<section id="food" class="view food-world">
+  <section class="food-hero">
+    <div class="food-hero-image food-hero-a"></div>
+    <div class="food-hero-image food-hero-b"></div>
+    <div class="food-hero-copy">
+      <small>HIGH ASIA · AT THE TABLE</small>
+      <h1>Food from<br>the hills.</h1>
+      <p>Wild fruit, orchard harvests, steamed breads, dumplings and warm vegetarian plates — a small edible atlas of the places beneath the peaks.</p>
+    </div>
+  </section>
+  <section class="food-intro">
+    <div><small class="section-label">FRUIT · GRAIN · STEAM · SPICE</small><h2>Taste the landscape.</h2></div>
+    <p>Altitude shapes appetite. These are foods and fruits associated with the mountain regions and hill stations in the atlas — selected as invitations to explore regional cuisines, not as exhaustive menus.</p>
+  </section>
+  <section class="food-grid">
+    <article class="food-card food-wide">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kafal.jpg" alt="Kafal fruit" onerror="this.style.display='none'">
+      <div class="food-copy"><small>GARHWAL · KUMAON · HIMALAYAN HILLS · FRUIT</small><h2>Kafal</h2><p>A small crimson wild fruit of the middle Himalayan hills, tart and sweet at once. In season it feels inseparable from mountain roads, forest edges and the first warmth after winter.</p><span>Near · Nanda Devi · Nainital · Kumaon</span></div>
+    </article>
+    <article class="food-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Traditional%20Kulluvi%20Siddu.jpg" alt="Himachali siddu" onerror="this.style.display='none'">
+      <div class="food-copy"><small>HIMACHAL PRADESH · VEGETARIAN</small><h2>Siddu</h2><p>Soft fermented wheat dough, steamed rather than baked, often filled with walnut, poppy-seed or lentil mixtures and eaten warm with ghee or chutney.</p><span>Near · Shimla · Dharamshala · Himachal</span></div>
+    </article>
+    <article class="food-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Orange%20Garden%20in%20Sittong%2C%20Darjeeling.jpg" alt="Orange orchard in Darjeeling" onerror="this.style.display='none'">
+      <div class="food-copy"><small>DARJEELING · WINTER FRUIT</small><h2>Hill oranges</h2><p>Winter turns orchards around Darjeeling and Sittong bright with citrus — fragrant fruit ripening under cool sun while the eastern Himalaya rises beyond the valleys.</p><span>Near · Darjeeling · Khangchendzonga</span></div>
+    </article>
+    <article class="food-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Veg%20Momo%201.jpg" alt="Vegetarian momo with sauce" onerror="this.style.display='none'">
+      <div class="food-copy"><small>NEPAL · SIKKIM · TIBETAN HIMALAYA · VEGETARIAN</small><h2>Veg momo</h2><p>Steamed dumplings folded around vegetables and served hot with a sharp chutney. They travel easily across the Himalayan cultural world — from Kathmandu and the Khumbu to Sikkim and hill-town cafés.</p><span>Near · Everest · Darjeeling · Dharamshala</span></div>
+    </article>
+    <article class="food-card food-wide">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Nepali%20dal-bhat-tarkari.jpg" alt="Nepali dal bhat tarkari" onerror="this.style.display='none'">
+      <div class="food-copy"><small>NEPAL · VEGETARIAN PLATE</small><h2>Dal bhat tarkari</h2><p>Rice, lentils and vegetable preparations form a sustaining everyday meal throughout Nepal. For trekkers, its warmth and simplicity become part of the rhythm of long days on the trail.</p><span>Near · Everest · Annapurna · Manaslu · Makalu</span></div>
+    </article>
+    <article class="food-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Orchards%20in%20snow%2C%20Sangla%2C%20Himachal%20Pradesh%2C%20India.jpg" alt="Apple orchards in snow in Himachal Pradesh" onerror="this.style.display='none'">
+      <div class="food-copy"><small>HIMACHAL PRADESH · ORCHARDS · FRUIT</small><h2>Mountain apples</h2><p>Cold winters and high valleys shape Himachal’s orchard country. Apples are not just a snack here; they are part of the agricultural landscape itself.</p><span>Near · Shimla · Kasauli · western Himalaya</span></div>
+    </article>
+    <article class="food-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/White%20Chana%20Madra.jpg" alt="White chana madra" onerror="this.style.display='none'">
+      <div class="food-copy"><small>KANGRA · CHAMBA · VEGETARIAN</small><h2>Chana madra</h2><p>Chickpeas cooked into a rich yogurt-based Himachali preparation, associated especially with Kangra and Chamba. Dense, comforting and made for a mountain table.</p><span>Near · Dharamshala · Dalhousie</span></div>
+    </article>
+    <article class="food-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Fragaria%20Fruit%20Close-up.jpg" alt="Ripe strawberry" onerror="this.style.display='none'">
+      <div class="food-copy"><small>NILGIRI HILLS · FRUIT</small><h2>Hill strawberries</h2><p>Bright, fragrant berries suit the cool cultivated hill climate around the Nilgiris. They bring a vivid sweetness to the greener, rain-soaked atmosphere of southern hill country.</p><span>Near · Ooty · Nilgiris</span></div>
+    </article>
+  </section>
+  <section class="food-kitchen">
+    <div class="food-kitchen-head">
+      <small>FOLLOW THE MOUNTAIN INTO THE KITCHEN</small>
+      <h2>Choose a place.<br>Taste its region.</h2>
+      <p>Move from a summit or hill station into the foods that grow, steam, ferment and ripen around it. Seasons are approximate and vary with altitude and year.</p>
+    </div>
+    <div class="kitchen-layout">
+      <div class="kitchen-places" id="kitchen-places"></div>
+      <div class="kitchen-panel" id="kitchen-panel" aria-live="polite"></div>
+    </div>
+  </section>
+</section>
+
+</main><footer class="foot"><span>HIGH ASIA</span><span>Mountains · Places · Journeys · Life at altitude</span></footer>
+<script>
+const mountains=[
+{slug:'nanda-devi',name:'Nanda Devi',range:'Himalaya',sub:'Garhwal Himalaya',elevation:'7,817 m',ascent:'1936',lat:30.3753,lon:79.9707,image:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nanda_Devi_peak.jpg/1280px-Nanda_Devi_peak.jpg',text:'A sacred summit held inside a natural fortress of ridges, gorge and protected wilderness.',history:[['1934','The sanctuary opens','Shipton and Tilman found a route through the Rishi Ganga gorge.'],['1936','First ascent','Tilman and Odell reached the summit.'],['1983','Protection deepens','Mountaineering and adventure activity inside the national park were banned.']],journey:{getting:'Begin in Joshimath, the practical gateway to this part of the Garhwal Himalaya, then continue by local road toward Lata and the permitted outer approaches. The journey is less about rushing toward a destination and more about gradually entering the protected landscape — villages, forest, gorge and high viewpoints revealing the sanctuary in stages.',trek:'The visitor experience is the protected landscape and the regulated approaches around it, not unrestricted entry into the Inner Sanctuary. Expect steep Himalayan terrain, changing weather and long periods where the value of the trek is simply seeing the mountain appear between ridges and clouds.',stay:'Base yourself in Joshimath or in nearby villages where accommodation is permitted. Simple guesthouses and locally run stays make the journey feel connected to the region rather than detached from it, and they also make early starts toward the trailheads easier.',permits:'Protected-area access is controlled, and the rules can change with conservation requirements and seasonal conditions. Verify the latest Uttarakhand Forest Department guidance before departure, especially if your route approaches restricted zones or requires local permissions.',budget:'₹8,000–₹20,000 local estimate',links:[['Uttarakhand Tourism · Nanda Devi','https://www.uttarakhandtourism.gov.in/destination/nanda-devi-national-park'],['UNESCO · Nanda Devi','https://whc.unesco.org/en/list/335/']] }},
+{slug:'everest',name:'Everest',range:'Himalaya',sub:'Mahalangur Himal',elevation:'8,848.86 m',ascent:'1953',lat:27.9881,lon:86.925,image:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Everest%2C_Himalayas.jpg/1280px-Everest%2C_Himalayas.jpg',text:'The world’s highest point, but also a border mountain, a Sherpa homeland and a landscape of pilgrimage and expedition history.',history:[['1921','Reconnaissance','British expeditions began systematic exploration from Tibet.'],['1953','First ascent','Tenzing Norgay and Edmund Hillary reached the summit.'],['2020','Modern height','Nepal and China jointly announced 8,848.86 m.']],journey:{getting:'Most journeys begin in Kathmandu before continuing to Lukla, either by air or via a longer road-and-trail approach. From Lukla, the route descends toward Phakding and then climbs gradually to Namche Bazaar, where the scale of the Khumbu and the first great Himalayan views begin to open.',trek:'The classic Everest Base Camp journey usually takes around two weeks when proper acclimatization is included. The route moves through Sherpa villages, suspension bridges, monasteries and increasingly sparse high-altitude terrain before reaching the glacial world above Lobuche and Gorak Shep.',stay:'Teahouses and trekking lodges line the Khumbu route, making this one of the most accessible long high-altitude treks in the Himalaya. Rooms are usually simple, while common dining rooms become warm social spaces at the end of cold trekking days.',permits:'Current Nepal rules include route-specific guide and TIMS requirements together with protected-area fees. Because regulations can change, always confirm the latest Nepal Tourism Board guidance before leaving Kathmandu and keep copies of the relevant documents with you on the trail.',budget:'NPR 55,000–120,000 local estimate',links:[['Nepal Tourism Board · Everest Base Camp','https://trade.ntb.gov.np/everest-base-camp/'],['Nepal Tourism Board · TIMS','https://ntb.gov.np/plan-your-trip/before-you-come/tims-card']] }},
+{slug:'k2',name:'K2',range:'Karakoram',sub:'Baltoro Muztagh',elevation:'8,611 m',ascent:'1954',lat:35.8808,lon:76.5158,image:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/K-2_mountain.jpg/1280px-K-2_mountain.jpg',text:'A severe, geometric giant of the Karakoram whose approach across the Baltoro is itself one of the great journeys of High Asia.',history:[['1909','Early expedition','The Abruzzi expedition explored major lines on K2.'],['1954','First ascent','Achille Compagnoni and Lino Lacedelli reached the summit.'],['Today','Baltoro approach','Concordia remains one of the great mountain viewpoints.']],journey:{getting:'The journey begins in Skardu, where expedition teams and trekkers organize supplies before continuing by rough mountain road toward Askole. From there, the route becomes a long walk into the Baltoro Glacier system, with each day pushing farther from roads and deeper into the Karakoram.',trek:'The K2 Base Camp and Concordia approach is a long expedition-style trek that requires serious logistics, camping equipment and careful planning. The reward is extraordinary: the Baltoro opens into one of the most concentrated landscapes of giant peaks anywhere on Earth.',stay:'Skardu offers hotels and guesthouses before and after the trek, but once the route reaches the Baltoro the experience becomes expedition-style camping. Nights are simple, cold and remote, with the surrounding peaks often visible directly from camp.',permits:'Foreign trekking in restricted areas normally requires formal permissions and handling through a licensed local operator. Build extra time into the planning process, because documentation, route clearance and logistical coordination are part of the journey rather than an afterthought.',budget:'PKR 180,000–450,000+ local estimate',links:[['Pakistan Tourism · Trekking rules','https://tourism.gov.pk/advertisements/Mountaineering%20and%20Trekking%20in%20Pakistan%20PTDC.pdf']] }},
+{slug:'shivling',name:'Shivling',range:'Himalaya',sub:'Garhwal Himalaya',elevation:'6,543 m',ascent:'1974',lat:30.8680,lon:79.0630,image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Shivling%20from%20Nandanvan%2C%20Mountain%20peaks%20of%20Himalayas%20Uttarakhand%20India.jpg',text:'A near-perfect granite and ice pyramid above the Gangotri Glacier, revered for its resemblance to the sacred symbol of Shiva.',history:[['Ancient','Sacred landscape','The Gangotri region has long carried profound religious meaning within the upper Ganga landscape.'],['1974','First ascent','The summit was first climbed in 1974.'],['Today','Tapovan view','Trekkers commonly experience Shivling from the Gaumukh–Tapovan landscape rather than as a climbing objective.']],journey:{getting:'Reach Uttarkashi and continue by mountain road to Gangotri, where the walking approach begins.',trek:'The classic visitor route follows the Gangotri valley toward Bhojbasa and Gaumukh before climbing toward Tapovan, one of the great viewpoints of Shivling.',stay:'Guesthouses are available in Gangotri; higher on the route accommodation becomes basic and may involve camps or simple seasonal facilities.',permits:'Gangotri National Park access is regulated. Check current Uttarkashi and forest-authority permit requirements before departure.',budget:'₹10,000–₹25,000 local planning estimate',links:[['Uttarakhand Tourism','https://uttarakhandtourism.gov.in/']] }},
+{slug:'annapurna-i',name:'Annapurna I',range:'Himalaya',sub:'Annapurna Himal',elevation:'8,091 m',ascent:'1950',lat:28.5958,lon:83.8203,image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Annapurna%20Massif-5133.jpg',text:'The first 8,000-metre mountain ever climbed, rising above one of Nepal’s richest trekking landscapes.',history:[['1950','First 8,000er','Maurice Herzog and Louis Lachenal reached the summit, the first ascent of any 8,000-metre peak.'],['1986','Sanctuary protected','The Annapurna Conservation Area became a pioneering community-focused protected landscape.'],['Today','A trekking world','The massif is experienced through base-camp, circuit and village routes from the Pokhara side.']],journey:{getting:'Pokhara is the main regional gateway, with road access onward to multiple Annapurna trailheads.',trek:'For most visitors, Annapurna Base Camp or sections of the wider Annapurna trail system provide the mountain experience without mountaineering.',stay:'The region has an extensive network of teahouses and trekking lodges.',permits:'Current Nepal trekking and conservation-area requirements should be checked with Nepal Tourism Board before departure.',budget:'NPR 35,000–80,000 local planning estimate',links:[['Nepal Tourism Board · Annapurna','https://trade.ntb.gov.np/tourist-destination/annapurna-region/'],['Nepal Tourism Board · TIMS','https://ntb.gov.np/plan-your-trip/before-you-come/tims-card']] }},
+{slug:'khangchendzonga',name:'Khangchendzonga',range:'Himalaya',sub:'Kangchenjunga Himal',elevation:'8,586 m',ascent:'1955',lat:27.7025,lon:88.1475,image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Kangchenjunga%20at%20Sunrise.jpg',text:'The world’s third-highest mountain, revered across Sikkim and the eastern Himalaya and often revealed through cloud at dawn.',history:[['1955','First ascent','Joe Brown and George Band reached the summit, stopping just short of the very top in respect for Sikkimese belief.'],['2016','Sacred landscape recognized','Khangchendzonga National Park was inscribed as a UNESCO World Heritage property.'],['Today','Viewed from Sikkim','Goecha La, Dzongri and the Darjeeling–Sikkim hills offer celebrated views of the massif.']],journey:{getting:'On the Indian side, Yuksom in Sikkim is the classic trail gateway for Dzongri and Goecha La viewpoints.',trek:'The trek climbs through forest and high meadows toward dramatic views of the Khangchendzonga massif rather than the summit itself.',stay:'Accommodation ranges from Sikkim hotels and homestays to basic trekking huts or camps higher on the route.',permits:'Rules vary by nationality and route in Sikkim. Confirm current protected-area and foreign-traveler requirements before travel.',budget:'₹20,000–₹50,000 local planning estimate',links:[['Sikkim Tourism','https://sikkimtourism.gov.in/'],['UNESCO · Khangchendzonga National Park','https://whc.unesco.org/en/list/1513/']] }},
+{slug:'kailash',name:'Kailash',range:'Transhimalaya',sub:'Gangdise Range',elevation:'6,638 m',ascent:'Unclimbed',lat:31.0675,lon:81.3119,image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mount%20Kailash%20tour.jpg',text:'A sacred mountain of extraordinary religious importance, approached through pilgrimage and circumambulation rather than summit climbing.',history:[['Ancient','Sacred mountain','Kailash has deep significance in Hindu, Buddhist, Jain and Bön traditions.'],['Pilgrimage','The kora','The high-altitude circuit around the mountain is the defining visitor journey.'],['Present','No summit ascent','The mountain remains unclimbed and is not treated as a recreational summit objective.']],journey:{getting:'Modern visits are normally organized through the permitted travel system for the Tibet Autonomous Region, with Darchen serving as the immediate kora base.',trek:'The visitor journey is the multi-day Kailash kora, a demanding high-altitude circumambulation rather than a climb.',stay:'Accommodation is generally organized on the approach, with simpler pilgrim lodgings or guesthouses around the kora.',permits:'Travel permissions vary by passport, entry route and current Tibet regulations; travelers should verify requirements through authorized operators and official guidance.',budget:'CNY 4,000–10,000+ local-segment planning estimate',links:[['Kailash kora safety guidance','https://travel.state.gov/en/international-travel/planning/safety-tips/kora-pilgrimage-to-mount-kailash.html']] }},
+{slug:'makalu',name:'Makalu',range:'Himalaya',sub:'Mahalangur Himal',elevation:'8,485 m',ascent:'1955',lat:27.8897,lon:87.0883,image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Makalu.jpg',text:'A vast four-sided pyramid east of Everest, remote even by Himalayan standards and surrounded by wild high valleys.',history:[['1954','Reconnaissance era','International expeditions began serious attempts on the mountain.'],['1955','First ascent','Lionel Terray and Jean Couzy reached the summit during a French expedition.'],['Today','Remote approach','Makalu Base Camp remains one of Nepal’s more demanding and less-traveled major trekking journeys.']],journey:{getting:'The usual Nepal approach begins with access to the Arun and Makalu-Barun region before entering a long trekking route toward base camp.',trek:'Makalu Base Camp is a remote high-altitude trek through major changes in vegetation and terrain, ending beneath one of the world’s highest peaks.',stay:'Expect a mix of simple lodges, village accommodation and more basic trekking infrastructure than on the Everest or Annapurna routes.',permits:'Check current Nepal guide, TIMS and protected-area requirements before departure.',budget:'NPR 70,000–150,000+ local planning estimate',links:[['Nepal Tourism Board · TIMS','https://ntb.gov.np/plan-your-trip/before-you-come/tims-card']] }},
+{slug:'manaslu',name:'Manaslu',range:'Himalaya',sub:'Mansiri Himal',elevation:'8,163 m',ascent:'1956',lat:28.5497,lon:84.5597,image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Manaslu%20Circuit%20Trek.jpg',text:'An immense snow mountain above the Budhi Gandaki, now encountered most often through the long Manaslu Circuit.',history:[['1956','First ascent','Toshio Imanishi and Gyalzen Norbu reached the summit during a Japanese expedition.'],['1998','Conservation area','The Manaslu Conservation Area was established around the region.'],['Today','Circuit journey','The Manaslu Circuit has become one of Nepal’s defining high mountain treks.']],journey:{getting:'The trekking journey begins from road-accessible settlements west of Kathmandu before following the Budhi Gandaki valley upstream.',trek:'The Manaslu Circuit gradually enters Tibetan-influenced high villages before crossing the high Larkya La and descending toward the Annapurna side.',stay:'Teahouses operate along much of the modern circuit, though facilities are simpler than on Nepal’s busiest trekking routes.',permits:'The Manaslu area includes restricted-zone and conservation requirements; confirm current guide and permit rules before booking.',budget:'NPR 60,000–130,000 local planning estimate',links:[['Nepal Tourism Board · TIMS','https://ntb.gov.np/plan-your-trip/before-you-come/tims-card']] }}];
+const hills=[
+{name:'Shimla',state:'Himachal Pradesh',elevation:'≈ 2,200 m',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Shimla%20Southern%20Side%20of%20Ridge.JPG',text:'A city laid along a ridge, where cedar shade, winter light and the long railway climb meet the higher Himalaya.',gallery:[
+['https://commons.wikimedia.org/wiki/Special:Redirect/file/Christ%20Church%20Ridge%20Shimla.jpg','Evening gathers around the Ridge; stone, cedar and mountain air hold the last light.'],
+['https://commons.wikimedia.org/wiki/Special:Redirect/file/Christ%20Church%20at%20the%20Ridge%2C%20Shimla.jpg','The old church rises through the hill town like a pale marker in the mist.']]},
+{name:'Darjeeling',state:'West Bengal',elevation:'≈ 2,045 m',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Kanchenjunga%20range%20from%20tea%20gardens%20of%20darjeeling.jpg',text:'Tea gardens fall into cloud while Kanchenjunga appears and disappears beyond the roofs — less a backdrop than a presence.',gallery:[
+['https://commons.wikimedia.org/wiki/Special:Redirect/file/DarjeelingTeaGardens.jpg','Tea follows the mountain’s contours like green calligraphy written across the slopes.'],
+['https://commons.wikimedia.org/wiki/Special:Redirect/file/Tea%20gardens%20of%20Darjeeling.jpg','Beyond the leaves, the eastern Himalaya waits in cloud and immense distance.']]},
+{name:'Mussoorie',state:'Uttarakhand',elevation:'≈ 2,000 m',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mussoorie%20landscape.jpg',text:'The ridge floats above the Doon, receiving monsoon cloud, winter sun and the first distant suggestion of snow.',gallery:[
+['https://commons.wikimedia.org/wiki/Special:Redirect/file/Mussoorie%20Snow%20Over%20Dehradun%20%2814831297545%29.jpg','Snow quiets the ridge while the plains lie far below in another season.'],
+['https://commons.wikimedia.org/wiki/Special:Redirect/file/Mussoorie%20view.jpg','Cloud enters the town softly, dissolving roads, roofs and distance into one pale breath.']]},
+{name:'Nainital',state:'Uttarakhand',elevation:'≈ 2,084 m',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Panorama%20of%20Nainital%20town%20and%20lake.jpg',text:'A green lake held in a bowl of forested hills, with Kumaon rising quietly beyond the water.',gallery:[
+['https://commons.wikimedia.org/wiki/Special:Redirect/file/Boats%20on%20Nainital%20Lake.jpg','Boats drift across the lake like small thoughts beneath the surrounding hills.'],
+['https://commons.wikimedia.org/wiki/Special:Redirect/file/Boating%20scene%20nainital.jpg','Water gathers the sky, the town and the forest into one deep reflection.']]},
+{name:'Dharamshala',state:'Himachal Pradesh',elevation:'≈ 1,450–2,080 m',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Dharamsala%20and%20dhauladhar%20range.jpg',text:'The Dhauladhar rises almost directly behind the town — dark forest below, white stone and snow suspended above.',gallery:[
+['https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Dhauladhar%20Range.jpg','Prayer, cedar and mountain weather meet beneath the sudden white wall of the Dhauladhar.'],
+['https://commons.wikimedia.org/wiki/Special:Redirect/file/Dharamsala-douladhar-range.jpg','The mountains stand so near that the town seems built at the threshold of another world.']]},
+{name:'Ooty',state:'Tamil Nadu',elevation:'≈ 2,240 m',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Fields%20Hazy%20Mountains%20Marlimund%20Ooty%20Nilgiris%20Aug25%20A7CR%2007258.jpg',text:'Far south of the Himalaya, the Nilgiris gather rain and cloud into shola forest, grassland and blue distance.',gallery:[
+['https://commons.wikimedia.org/wiki/Special:Redirect/file/Botanical%20Gardens%20-%20Ootacamund%20%28Ooty%29%20-%20India%2003.JPG','Gardens climb the hillside in terraces, cultivated beauty held inside the Nilgiri mist.'],
+['https://commons.wikimedia.org/wiki/Special:Redirect/file/Nilgiri%20Mountain%20Railway.jpg','The mountain railway threads slowly upward, carrying the plains into cloud country.']]}
+]
+
+const storyMedia={
+'nanda-devi':[
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Camp%20II%2C%2020%2C700%20Ft%2C%20Mentioned%20as%20GITE%20by%20Bill%20Tillman.jpg',caption:'A fragile expedition camp held inside the sanctuary — canvas and human resolve beneath an immense ring of stone.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/1936%20photo%20of%20Nanda%20Devi.jpg',caption:'Nanda Devi in 1936, the year the mountain was first climbed — the summit still seeming to rise beyond ordinary scale.'},
+ {src:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Nanda_Devi_peak.jpg/1280px-Nanda_Devi_peak.jpg',caption:'Today the sanctuary is encountered with restraint: distance itself has become part of the mountain’s protection.'}
+],
+'everest':[
+ {src:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Everest%2C_Himalayas.jpg/1280px-Everest%2C_Himalayas.jpg',caption:'Before the summit was reached, Everest was first a problem of distance, weather and the unknown architecture of the mountain.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Edmund%20Hillary%20and%20Tenzing%20Norgay.jpg',caption:'Edmund Hillary and Tenzing Norgay on 29 May 1953, after the first successful ascent — exhaustion and joy held in one historic frame.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/1953%20conquest%20of%20everest%2014.jpg',caption:'Everest entered the modern imagination through expedition images such as these, yet the mountain remains larger than the record.'}
+],
+'k2':[
+ {src:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/K-2_mountain.jpg/1280px-K-2_mountain.jpg',caption:'K2 rises with an almost severe geometry — the mountain itself explaining why early expeditions found so few forgiving lines.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/K2%20expedition%201954.jpg',caption:'The 1954 Italian expedition beneath K2: a human assembly gathered for one of mountaineering’s defining attempts.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Compagnoni%20and%20Lacedelli%201954.jpg',caption:'Compagnoni and Lacedelli belonged to the team that completed K2’s first ascent in 1954 — history reduced to figures against snow and rock.'}
+],
+'shivling':[
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Sivling.jpg',caption:'From Tapovan, Shivling rises almost impossibly clean above the meadow — a form that feels both geological and devotional.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Shivling.jpg',caption:'Snowfall gathers around Shivling and Gomukh, where the upper Ganga landscape becomes austere, luminous and elemental.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Shivling%20from%20Nandanvan%2C%20Mountain%20peaks%20of%20Himalayas%20Uttarakhand%20India.jpg',caption:'Across the Gangotri landscape, the mountain changes with every valley and angle while retaining its unmistakable profile.'}
+],
+'annapurna-i':[
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Annapurna%20I.jpg',caption:'Annapurna I seen high in the massif — a wall of snow whose scale once marked the frontier of what climbers believed possible.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gaint%20annapurna%20I.jpg',caption:'From Annapurna Base Camp the mountain fills the horizon, no longer a distant summit but an enormous enclosing presence.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Annapurna%20I%20%26%20South%20Nagi.JPG',caption:'The Annapurna massif seen from inhabited country below, where farms and villages remain visually tied to the high snow.'}
+],
+'khangchendzonga':[
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Kangchenjunga%20Mountains%2C%20Sikkim.jpg',caption:'The five snowy summits rise above Sikkim like a distant sacred wall, often appearing only when cloud chooses to release them.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Kangchenjunga%2C%20India.jpg',caption:'From Pelling, the massif unfolds across the eastern horizon — not one peak but a procession of high snow.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Kangchenjunga%20Mountain.jpg',caption:'Morning cold sharpens the ridges of Khangchendzonga, giving the mountain the clarity of something both present and unreachable.'}
+],
+'kailash':[
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mount%20Kailash%20Tibet.jpg',caption:'Kailash is approached as a sacred presence rather than a summit objective — a mountain whose meaning begins before the trail does.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/MOUNT%20KAILASH.jpg',caption:'Along the way to Kailash, distance and repetition become part of pilgrimage: walking, weather and mountain held together.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mount%20Kailash%2C%20Tibet.jpg',caption:'The face of Kailash catches light with extraordinary simplicity, its unclimbed summit reinforcing the distinction between reverence and conquest.'}
+],
+'makalu':[
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Makalu.jpg',caption:'Makalu from the southwest — a four-sided pyramid that seems to stand apart even among the giants of the Mahalangur Himal.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/MAKALU1.jpg',caption:'An expedition image from Makalu in 1974: remoteness is visible not as emptiness, but as scale.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Makalu%20from%20Island%20Peak.jpg',caption:'Seen from Island Peak, Makalu withdraws into the distance — enormous, isolated and unmistakable.'}
+],
+'manaslu':[
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Manaslu-mountain-nepal.jpg',caption:'Manaslu rises above Nepal’s middle mountain country, its broad white mass dominating a landscape still shaped by villages and valleys.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Manasalu.jpg',caption:'A different face of Manaslu reveals the breadth of the mountain rather than a single summit point.'},
+ {src:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mount%20Manaslu%20%288%2C163%20m%29%20close-up%20view%20from%20Samagaun%2C%20Gorkha%2C%20Nepal.jpg',caption:'From Samagaun, Manaslu appears close enough to structure the whole valley — snow, settlement and sky sharing one field of view.'}
+]
+};
+
+const kitchenCollections=[
+ {id:'garwhal',place:'Nanda Devi · Shivling',region:'Garhwal & Kumaon',season:'Kafal · late spring to early summer',foods:['Kafal','Aloo ke gutke','Mandua roti','Jhangora preparations'],where:'Look for seasonal fruit, millets and local vegetarian cooking in mountain towns and village markets around Kumaon and Garhwal.',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Kafal.jpg'},
+ {id:'khumbu',place:'Everest',region:'Khumbu & Nepal Himalaya',season:'Potato harvest · late summer / autumn',foods:['Dal bhat tarkari','Veg momo','Sherpa-style potato dishes','Tibetan breads'],where:'Teahouses and lodges along the Everest route turn simple grains, lentils, potatoes and vegetables into sustaining trekking meals.',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Nepali%20dal-bhat-tarkari.jpg'},
+ {id:'sikkim',place:'Khangchendzonga · Darjeeling',region:'Sikkim & Darjeeling hills',season:'Hill oranges · winter',foods:['Veg momo','Thukpa with vegetables','Gundruk preparations','Darjeeling hill oranges'],where:'Markets and kitchens across Sikkim and Darjeeling reflect a meeting of Himalayan, Nepali and Tibetan food traditions.',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Orange%20Garden%20in%20Sittong%2C%20Darjeeling.jpg'},
+ {id:'himachal',place:'Shimla · Dharamshala',region:'Himachal Pradesh',season:'Apples · late summer to autumn',foods:['Siddu','Chana madra','Mountain apples','Apricots / chulli'],where:'Orchards, grain, yogurt and walnuts shape much of the vegetarian mountain table; local markets are best when fruit is in season.',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Traditional%20Kulluvi%20Siddu.jpg'},
+ {id:'annapurna',place:'Annapurna · Manaslu · Makalu',region:'Nepal trekking country',season:'Fresh greens vary strongly by altitude',foods:['Dal bhat tarkari','Veg momo','Buckwheat dishes','Seasonal vegetables'],where:'Village lodges and teahouses make food part of the trekking rhythm: warm plates, repeated ingredients and regional variations from valley to valley.',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Veg%20Momo%201.jpg'},
+ {id:'nilgiri',place:'Ooty',region:'Nilgiri Hills',season:'Strawberries · cool-season crop',foods:['Hill strawberries','Vegetable stews','Millet dishes','Tea-country produce'],where:'The southern highlands bring a different altitude cuisine — gardens, berries, tea, vegetables and the produce of a cool, wet hill climate.',image:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Fragaria%20Fruit%20Close-up.jpg'}
+];
+const rangeFilters=['All','Himalaya','Karakoram','Transhimalaya'];let selected=mountains[0],range='All',journeyTab='getting';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+function project(lon,lat){const minLon=68,maxLon=93,minLat=24,maxLat=38;const x=((lon-minLon)/(maxLon-minLon))*1000;const y=560-((lat-minLat)/(maxLat-minLat))*560;return [Math.max(16,Math.min(984,x)),Math.max(16,Math.min(544,y))]}
+function renderFilters(){const el=$('#filters');el.innerHTML='';rangeFilters.forEach(r=>{const b=document.createElement('button');b.textContent=r==='All'?'All High Asia':r;b.className=r===range?'active':'';b.onclick=()=>{range=r;const list=mountains.filter(m=>range==='All'||m.range===range);if(list.length)selected=list[0];renderAll()};el.appendChild(b)})}
+function renderMap(){
+  const root=$('#peaks');root.innerHTML='';
+  const markerLayer=document.createElementNS('http://www.w3.org/2000/svg','g');
+  markerLayer.setAttribute('class','peak-marker-layer');
+  const labelLayer=document.createElementNS('http://www.w3.org/2000/svg','g');
+  labelLayer.setAttribute('class','peak-label-layer');
+  root.append(markerLayer,labelLayer);
+
+  const visible=mountains.filter(m=>range==='All'||m.range===range)
+    .map(m=>{const [x,y]=project(m.lon,m.lat);return {m,x,y}})
+    .sort((a,b)=>a.x-b.x);
+  const placed=[];
+  function overlap(a,b){return !(a.r<b.l||a.l>b.r||a.b<b.t||a.t>b.b)}
+
+  visible.forEach(({m,x,y},idx)=>{
+    const marker=document.createElementNS('http://www.w3.org/2000/svg','g');
+    marker.setAttribute('class','peak'+(m.slug===selected.slug?' selected':''));
+    marker.setAttribute('transform',`translate(${x} ${y})`);
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('r','6.5');
+    marker.append(c);
+    marker.addEventListener('click',()=>{selected=m;renderAll()});
+    markerLayer.appendChild(marker);
+
+    const width=Math.max(48,m.name.length*6.6);
+    const candidates=[
+      {dx:18,dy:-18,anchor:'start',box:{l:x+15,r:x+15+width,t:y-35,b:y-9}},
+      {dx:18,dy:27,anchor:'start',box:{l:x+15,r:x+15+width,t:y+10,b:y+36}},
+      {dx:-18,dy:-18,anchor:'end',box:{l:x-15-width,r:x-15,t:y-35,b:y-9}},
+      {dx:-18,dy:27,anchor:'end',box:{l:x-15-width,r:x-15,t:y+10,b:y+36}},
+      {dx:20,dy:-43,anchor:'start',box:{l:x+17,r:x+17+width,t:y-60,b:y-34}},
+      {dx:20,dy:49,anchor:'start',box:{l:x+17,r:x+17+width,t:y+32,b:y+58}}
+    ];
+    let pick=candidates.find(cand=>placed.every(b=>!overlap(cand.box,b)));
+    if(!pick) pick=candidates[idx%candidates.length];
+    placed.push(pick.box);
+
+    const lg=document.createElementNS('http://www.w3.org/2000/svg','g');
+    lg.setAttribute('class','peak-label'+(m.slug===selected.slug?' selected-label':''));
+    lg.setAttribute('transform',`translate(${x} ${y})`);
+    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1','8');line.setAttribute('y1','0');
+    line.setAttribute('x2',String(pick.dx+(pick.anchor==='end'?5:-5)));
+    line.setAttribute('y2',String(pick.dy+(pick.dy<0?5:-5)));
+    const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x',pick.dx);t.setAttribute('y',pick.dy);t.setAttribute('text-anchor',pick.anchor);
+    t.textContent=m.name;
+    lg.append(line,t);
+    lg.addEventListener('click',()=>{selected=m;renderAll()});
+    labelLayer.appendChild(lg);
+  });
+}
+function renderDetail(){const img=$('#detail-image');img.src=selected.image;img.alt=selected.name;$('#detail-sub').textContent=selected.sub+' · '+selected.range;$('#detail-name').textContent=selected.name;$('#detail-elev').textContent=selected.elevation;$('#detail-ascent').textContent=selected.ascent;$('#detail-text').textContent=selected.text}
+function photoFor(i){const choices=mountains.filter(m=>m.slug!==selected.slug);return choices[i%choices.length]?.image||selected.image}
+function renderStory(){
+  $('#story-title').textContent=selected.name+', through time.';
+  const el=$('#milestones');el.innerHTML='';
+  const media=storyMedia[selected.slug]||[];
+  selected.history.forEach((h,i)=>{
+    const pic=media[i]||{src:selected.image,caption:`${selected.name} — a view from within its own mountain landscape.`};
+    const row=document.createElement('article');row.className='milestone';
+    row.innerHTML=`<figure class="polaroid"><img src="${pic.src}" alt="${selected.name}: ${h[1]}" onerror="this.src='${selected.image}'"><p>${pic.caption}</p></figure><div class="milestone-copy"><small>${h[0]}</small><h3>${h[1]}</h3><p>${h[2]}</p></div>`;
+    el.appendChild(row);
+  });
+}
+function renderJourneyTabs(){const el=$('#journey-tabs');el.innerHTML='';[['getting','Getting there'],['trek','Trek'],['stay','Stay'],['permits','Permits'],['budget','Budget']].forEach(([id,label])=>{const b=document.createElement('button');b.textContent=label;b.className=id===journeyTab?'active':'';b.onclick=()=>{journeyTab=id;renderJourneyTabs();renderJourney()};el.appendChild(b)})}
+function renderJourney(){const j=selected.journey;const labels={getting:'Regional gateway',trek:'The approach',stay:'Where to stay',permits:'Permits & nationality',budget:'Local budget'};$('#journey-copy').innerHTML=`<small class="section-label">${labels[journeyTab]}</small><h3>${journeyTab==='budget'?j.budget:selected.name}</h3><p>${j[journeyTab]}</p>`;$('#journey-links').innerHTML='<small class="section-label">HELPFUL LINKS</small>'+j.links.map(([a,u])=>`<a href="${u}" target="_blank" rel="noreferrer">${a}<span>↗</span></a>`).join('')}
+
+let kitchenSelected='garwhal';
+function renderKitchen(){
+  const places=$('#kitchen-places'),panel=$('#kitchen-panel');
+  if(!places||!panel)return;
+  places.innerHTML='';
+  kitchenCollections.forEach(item=>{
+    const b=document.createElement('button');b.type='button';
+    b.className=item.id===kitchenSelected?'active':'';
+    b.innerHTML=`<small>${item.region.toUpperCase()}</small><strong>${item.place}</strong>`;
+    b.addEventListener('click',()=>{kitchenSelected=item.id;renderKitchen()});
+    places.appendChild(b);
+  });
+  const item=kitchenCollections.find(x=>x.id===kitchenSelected)||kitchenCollections[0];
+  panel.innerHTML=`<div class="kitchen-photo"><img src="${item.image}" alt="${item.region} regional food" onerror="this.style.display='none'"></div>
+    <div class="kitchen-copy"><small>${item.region.toUpperCase()}</small><h3>${item.place}</h3>
+    <p>${item.where}</p>
+    <div class="kitchen-meta"><div><span>SEASONAL NOTE</span><strong>${item.season}</strong></div><div><span>LOOK FOR</span><strong>${item.foods.join(' · ')}</strong></div></div></div>`;
+}
+function renderStations(){const el=$('#stations');el.innerHTML='';hills.forEach((s,i)=>{const a=document.createElement('article');a.className='station';const gallery=s.gallery.map(([src,caption],j)=>`<figure class="station-mini station-mini-${j}"><img src="${src}" alt="${s.name} landscape detail"><figcaption>${caption}</figcaption></figure>`).join('');a.innerHTML=`<div class="station-photo"><img src="${s.image}" alt="${s.name}"><div class="station-number">${String(i+1).padStart(2,'0')}</div></div><div class="station-copy"><small>${s.state.toUpperCase()} · ${s.elevation}</small><h2>${s.name}</h2><p>${s.text}</p><div class="station-gallery">${gallery}</div></div>`;el.appendChild(a)})}
+function renderAll(){renderFilters();
+function renderSnow(){
+  const layer=document.querySelector('#snowfall');
+  if(!layer)return;
+  layer.innerHTML='';
+  const flakes=[
+    [42,40,2.0,16],[88,115,1.4,22],[132,64,2.4,19],[181,142,1.7,24],[226,28,1.3,20],
+    [270,96,2.1,26],[318,48,1.5,18],[365,130,2.5,23],[414,72,1.2,27],[460,18,1.8,21],
+    [508,112,2.2,25],[552,55,1.4,19],[602,145,2.0,28],[648,35,1.3,22],[694,92,2.3,24],
+    [742,16,1.6,20],[786,124,2.0,26],[831,67,1.2,23],[875,154,2.4,29],[921,38,1.5,21],
+    [966,104,2.0,25],[112,198,1.2,28],[338,205,1.6,30],[578,192,1.3,27],[805,210,1.8,31]
+  ];
+  flakes.forEach(([x,y,r,d],i)=>{
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('class','snowflake');
+    c.setAttribute('cx',x); c.setAttribute('cy',y); c.setAttribute('r',r);
+    c.style.animationDuration=d+'s';
+    c.style.animationDelay=(-i*1.7)+'s';
+    layer.appendChild(c);
+  });
+}
+
+renderSnow();
+renderMap();renderDetail();renderStory();renderJourneyTabs();renderJourney()}
+$$('[data-view]').forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.view;$$('.view').forEach(x=>x.classList.toggle('active',x.id===v));$$('.world-nav button[data-view]').forEach(x=>x.classList.toggle('active',x.dataset.view===v));window.scrollTo({top:0,behavior:'smooth'})}));
+renderStations();renderKitchen();renderAll();
+</script>
+</body>
+</html>
