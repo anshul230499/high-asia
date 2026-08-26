@@ -118,8 +118,9 @@ export default function Home(){
 
   return <main>
     <div className="scroll-progress" aria-hidden="true"><i style={{transform:`scaleX(${scrollProgress})`}}/></div>
-    <header className="masthead"><div className="brand">HIGH ASIA</div><div className="edition">MOUNTAIN ATLAS · FOUNDING EDITION</div></header>
+    <header className="masthead"><button className="brand brand-button" onClick={()=>setSection('mountains')}>HIGH ASIA</button><nav className="world-nav" aria-label="High Asia sections"><button className={section==='mountains'?'active':''} onClick={()=>setSection('mountains')}>Mountains</button><button className={section==='hill-stations'?'active':''} onClick={()=>setSection('hill-stations')}>Hill Stations</button><span>Journeys</span><span>Atlas</span></nav><div className="edition">AN ATLAS OF LIFE AT ALTITUDE</div></header>
 
+    {section==='mountains'&&<>
     <section className="hero hero-cinematic">
       <video className="hero-video" autoPlay muted loop playsInline preload="metadata" poster={mountains[0].image} aria-hidden="true">
         <source src="https://videos.pexels.com/video-files/37998915/16126263_3840_2160_30fps.mp4" type="video/mp4"/>
@@ -163,16 +164,26 @@ export default function Home(){
     <section className="collection"><div className="section-heading"><div><span>02 · FOUNDING COLLECTION</span><h2>Start with the great peaks.</h2></div><p>Selecting a mountain changes the map, the summary card and the full story below.</p></div><div className="cards">{mountains.map(m=><button key={m.name} onClick={()=>{setRange('All');choose(m,true)}} className={selected.name===m.name?'mountain-card active-card':'mountain-card'}><small>{m.range}</small><strong>{m.name}</strong><span>{m.elevation}<br/>{m.sub}</span></button>)}</div></section>
 
     <section className="mountain-page" id="mountain-story" key={selected.slug}>
-      <div className={'mountain-hero chapter-'+activeChapter}><img className="mountain-photo" src={selected.image} alt={`${selected.name} in ${selected.sub}`}/><div className="mountain-atmosphere" aria-hidden="true"><span/><span/><span/></div><div className="mountain-overlay"></div><div className="mountain-copy"><small>{selected.range.toUpperCase()} · {selected.sub.toUpperCase()} · {selected.country.toUpperCase()}</small><h2>{selected.name}</h2><p>{selected.local}</p><div><span>{selected.elevation}</span><span>{selected.region}</span><span>First ascent · {selected.firstAscent}</span><span>{selected.status}</span></div></div></div>
+      <div className={'mountain-hero chapter-'+activeChapter}><img className="mountain-photo" src={selected.image} alt={`${selected.name} in ${selected.sub}`}/><div className="mountain-atmosphere" aria-hidden="true"><span/><span/><span/></div><div className="mountain-overlay"></div><div className="mountain-copy"><small>{selected.range.toUpperCase()} · {selected.sub.toUpperCase()} · {selected.country.toUpperCase()}</small><h2>{selected.name}</h2><div className="editorial-coords">{selected.lat.toFixed(4)}° N · {selected.lon.toFixed(4)}° E · {selected.sub.toUpperCase()}</div><p>{selected.local}</p><div><span>{selected.elevation}</span><span>{selected.region}</span><span>First ascent · {selected.firstAscent}</span><span>{selected.status}</span></div></div></div>
 
       <div className="ice-gallery" aria-label={`${selected.name} visual gallery`}>
         <figure className="ice-gallery-main"><img src={selected.image} alt={`${selected.name} mountain landscape`}/><figcaption><b>{selected.name}</b><span>Where earth rises until it begins to resemble sky.</span></figcaption></figure>
         <figure><img src={mountains[(mountains.findIndex(m=>m.slug===selected.slug)+1)%mountains.length].image} alt="High Asia neighboring mountain"/><figcaption><b>Beyond the ridge</b><span>Another summit receives the same ancient light.</span></figcaption></figure>
         <figure><img src={mountains[(mountains.findIndex(m=>m.slug===selected.slug)+3)%mountains.length].image} alt="High Asia ice and altitude"/><figcaption><b>Above the ordinary world</b><span>Ice, wind and silence — the elemental language of altitude.</span></figcaption></figure>
       </div>
+      <section className="fullbleed-pause reveal" aria-label={`${selected.name} landscape`}>
+        <img src={mountains[(mountains.findIndex(m=>m.slug===selected.slug)+4)%mountains.length].image} alt={`High Asia landscape near the story of ${selected.name}`}/>
+        <div className="fullbleed-caption"><small>HIGH ASIA · FIELD NOTE</small><p>Beyond the named summit, the range continues into silence — ridge after ridge receiving the same ancient light.</p></div>
+      </section>
+
       <div className="mountain-content reveal" data-story-step="0"><article><small>03 · THE MOUNTAIN</small><h3>{selected.headline}</h3><p className="lead">{selected.lead}</p><p>{selected.body}</p><div className="living-note"><span className="pulse-dot"></span>Scroll to travel through the story</div></article><aside className="record"><small>CORE RECORD</small><strong>{selected.elevation.replace(' m','')} <i>m</i></strong><dl><div><dt>Range</dt><dd>{selected.range}</dd></div><div><dt>Sub-range</dt><dd>{selected.sub}</dd></div><div><dt>Region</dt><dd>{selected.region}</dd></div><div><dt>Country</dt><dd>{selected.country}</dd></div><div><dt>First ascent</dt><dd>{selected.firstAscent}</dd></div></dl></aside></div>
       <div className="storytelling">
         <aside className="story-visual"><div className="story-compass"><span>N</span><i></i></div><div className="story-altitude"><small>STORY ALTITUDE</small><div><i style={{height:`${Math.min(96,22+activeChapter*14)}%`}}></i></div><strong>{activeChapter===0?'LANDSCAPE':selected.history[Math.min(activeChapter-1,selected.history.length-1)]?.[0]||'PRESENT'}</strong></div><p>{selected.name}<br/><span>{selected.sub}</span></p></aside>
+        <div className="archive-desk" aria-hidden="true">
+          <div className="archive-ticket"><small>FIELD RECORD</small><strong>{selected.elevation}</strong><span>{selected.lat.toFixed(2)} N / {selected.lon.toFixed(2)} E</span></div>
+          <div className="archive-note">“The mountain does not become smaller because we have named it.”</div>
+          <div className="archive-stamp">{selected.firstAscent==='—'?'SACRED':selected.firstAscent}</div>
+        </div>
         <div className="story-steps"><div className="story-step" data-story-step="1"><small>04 · ORIGIN</small><h3>Enter the landscape.</h3><p>{selected.lead}</p></div>{selected.history.map(([year,title,text],i)=>{const media=storyPhoto(selected,i,year);return <div className="story-step story-step-with-photo" data-story-step={i+2} key={year+title}><div className={'fridge-photo fridge-photo-'+(i%3)}><img src={media.src} alt={`${selected.name} ${year} historical or contextual image`}/><span>{media.caption}</span></div><small>{year}</small><h3>{title}</h3><p>{text}</p></div>})}<div className="story-step" data-story-step={selected.history.length+2}><small>NOW</small><h3>The mountain continues.</h3><p>{selected.body}</p></div></div>
       </div>
       <div className="history"><div><small>05 · EXPEDITION / CULTURAL HISTORY</small><h3>{selected.name}, through time.</h3></div><div className="timeline">{selected.history.map(([year,title,text])=><div key={year+title}><b>{year}</b><p><strong>{title}</strong><br/>{text}</p></div>)}</div></div>
@@ -195,6 +206,25 @@ export default function Home(){
       <div className="sources"><small>07 · SOURCES & NOTES</small><h3>Evidence stays visible.</h3><p>This page separates stable geographic facts from historical accounts and changing travel information. Access, permits and route conditions should always be rechecked before travel.</p><div className="photo-license-note">Photograph: {selected.credit}</div><div className="source-grid">{selected.sources.map(s=><div key={s}><b>{s}</b><span>Used for geographic, historical or visitor context in the atlas record.</span></div>)}<div><b>EDITORIAL RULE</b><span>Travel information expires; permanent facts and current access are stored separately.</span></div></div><div className="checked">RECORD CHECKED · AUGUST 2026</div></div>
     </section>
 
+    </>}
+
+    {section==='hill-stations'&&<div className="hills-world">
+      <section className="hills-hero">
+        <div className="hills-mist" aria-hidden="true"></div>
+        <div className="hills-hero-copy"><small>HIGH ASIA · INHABITED HEIGHTS</small><h1>Hill Stations<br/>of India.</h1><p>Mountain towns shaped by forest, rain, railways, tea, pilgrimage and the long human desire to live closer to the clouds.</p></div>
+      </section>
+      <section className="hills-intro"><small>THE SISTER ATLAS</small><p>The mountains tell the story of altitude at its wildest. Hill Stations follows what people built beneath and among them — settlements, railways, gardens, monasteries, schools, bazaars and roads suspended above the plains.</p></section>
+      <section className="station-grid">
+        {hillStations.map((s,i)=><article className={'station-card station-'+(i%4)} key={s.slug}>
+          <div className="station-photo"><img src={s.image} alt={`${s.name}, ${s.state}`}/><span>{String(i+1).padStart(2,'0')}</span></div>
+          <div className="station-copy"><small>{s.state.toUpperCase()} · {s.elevation}</small><h2>{s.name}</h2><p className="station-identity">{s.identity}</p><p className="station-poem">{s.poem}</p><div className="station-near">NEAR · {s.near}</div></div>
+        </article>)}
+      </section>
+      <section className="railways-tease">
+        <small>COMING INTO VIEW</small><h2>Three mountain<br/>railways.</h2><p>Darjeeling · Kalka–Shimla · Nilgiri</p><div className="rail-line"><i></i><i></i><i></i></div><p className="rail-note">Soon, each railway becomes a journey of its own — stations, gradients, bridges, photographs and the climb into the hills.</p>
+      </section>
+      <section className="hills-end"><small>THE ATLAS CONTINUES</small><h2>From inhabited ridges,<br/>back toward the snow.</h2><button onClick={()=>{setSection('mountains');window.scrollTo({top:0,behavior:'smooth'})}}>Return to Mountains ↑</button></section>
+    </div>}
     <footer>HIGH ASIA · MOUNTAIN ATLAS <span>Built for free static hosting</span></footer>
   </main>
 }
