@@ -135,7 +135,7 @@ export default function Home(){
 
   return <main>
     <div className="scroll-progress" aria-hidden="true"><i style={{transform:`scaleX(${scrollProgress})`}}/></div>
-    <header className="masthead"><button className="brand brand-button" onClick={()=>setSection('mountains')}>HIGH ASIA</button><nav className="world-nav" aria-label="High Asia sections"><button className={section==='mountains'?'active':''} onClick={()=>setSection('mountains')}>Mountains</button><button className={section==='hill-stations'?'active':''} onClick={()=>setSection('hill-stations')}>Hill Stations</button><span>Journeys</span><span>Atlas</span></nav><div className="edition">AN ATLAS OF LIFE AT ALTITUDE · HS v2</div></header>
+    <header className="masthead"><button className="brand brand-button" onClick={()=>setSection('mountains')}>HIGH ASIA</button><nav className="world-nav" aria-label="High Asia sections"><button className={section==='mountains'?'active':''} onClick={()=>setSection('mountains')}>Mountains</button><button className={section==='hill-stations'?'active':''} onClick={()=>setSection('hill-stations')}>Hill Stations</button><span>Journeys</span><span>Atlas</span></nav><div className="edition">AN ATLAS OF LIFE AT ALTITUDE · HS v3</div></header>
 
     {section==='mountains'&&<>
     <section className="hero hero-cinematic">
