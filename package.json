@@ -1,16 +1,7 @@
 {
-  "name": "high-asia-mountain-atlas",
+  "name": "high-asia",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "15.5.18",
-    "react": "19.1.2",
-    "react-dom": "19.1.2"
-  },
-  "devDependencies": {}
+  "scripts": {"dev":"next dev","build":"next build","start":"next start"},
+  "dependencies": {"next":"15.5.18","react":"19.1.2","react-dom":"19.1.2"}
 }
