@@ -1,16 +1,15 @@
-# High Asia — Vercel Analytics v28
+# High Asia — Global Atlas v29
 
-This build adds Vercel Web Analytics to the existing High Asia v27 site.
+This build keeps the existing High Asia sections intact and expands the previously disabled Atlas into a global mountain-range explorer.
 
-After deploying to the same Vercel project:
-1. Open the Vercel project dashboard.
-2. Go to Analytics.
-3. Enable Web Analytics if Vercel asks you to enable it.
-4. Visit the production site and navigate around it.
-5. Analytics data should begin appearing after traffic is recorded.
+## New in v29
+- Atlas navigation is now active.
+- 12 global mountain systems: Andes, Alps, Rockies, Atlas Mountains, Caucasus, Southern Alps, Drakensberg, Rwenzori, Alaska Range, Pyrenees, Scandinavian Mountains, and Japanese Alps.
+- Border-free schematic world map with clickable range markers.
+- Range cards and detailed editorial profiles.
+- Each range uses four High Asia lenses: Geography, Journeys, Food & Culture, and Flora & Fauna.
+- Representative photography is linked back to Wikimedia Commons with creator/license attribution.
+- Existing Vercel Web Analytics remains enabled.
 
-Tracking snippet added immediately before the closing body tag in index.html:
-- Vercel Web Analytics bootstrap
-- /_vercel/insights/script.js
-
-No visual or editorial website content was changed.
+## Deployment
+Replace the existing `index.html` with this version and redeploy the Vercel project. No additional packages are required.
